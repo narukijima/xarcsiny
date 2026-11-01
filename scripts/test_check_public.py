@@ -13,7 +13,7 @@ CASES = [
     ("tools/score.py", b"x = 1\n"), ("tracks/a/track.json", b"{}\n"), ("tracks/a/formula.md", b"x\n"), ("engine/core.py", b"x = 1\n"), ("engine" + "2/core.py", b"x = 1\n"),
     ("NOTES.md", b"x\n"), ("records/a.json", b"{}\n"), ("docs/album" + "-9.json", b"{}\n"), ("tools/c" + "999-zzz.py", b"x = 1\n"), ("tools/synth.py", b"x = 1\n"), ("src/fonts/inter.woff2", b"wOF2 not the font"),
     ("tools/stores.py", b"RIFF\x00\x00\x00\x00WAVE"), ("data/tracks.json", b'{"tempo_map": []}\n'), ("data/stores.json", b"<score-partwise version='4.0'>\n"), ("tools/stores.py", b"def cover_geometry():\n    pass\n"), ("data/stores.json", b'{"beat": "1", "inst": "x"}\n'), ("content/pages.json", b'{"a": "<svg></svg>"}\n'), ("data/stores.json", (b"A" * 76 + b"\n") * 30),
-    ("tools/stores.py", b"p = '/Users" + b"/someone/x'\n"), ("tools/stores.py", b"p = '~" + b"/studio'\n"), ("tools/stores.py", b"t = 'gh" + b"p_" + b"a" * 36 + b"'\n"), ("tools/stores.py", b"-----BEGIN " + b"PRIVATE KEY-----\n"),
+    ("tools/stores.py", b"p = '/Users" + b"/someone/x'\n"), ("tools/stores.py", b"p = '~" + b"/studio'\n"), ("tools/stores.py", b"p = '$HO" + b"ME/x'\n"), ("tools/stores.py", b"p = '/Vol" + b"umes/x'\n"), ("content/tracks.json", b'{"t": "C' + b'999_Zzz"}\n'), ("tools/stores.py", b"t = 'gh" + b"p_" + b"a" * 36 + b"'\n"), ("tools/stores.py", b"-----BEGIN " + b"PRIVATE KEY-----\n"),
     ("content/tracks.json", b'{"t": "the album' + b'-9 list"}\n'), ("content/tracks.json", b'{"t": "c' + b'999-zzz"}\n'), ("data/stores.json", b"A" * 5000 + b"\n"), ("notes.txt", b"plain\n"),
 ]
 

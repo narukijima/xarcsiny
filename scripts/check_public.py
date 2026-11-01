@@ -37,10 +37,10 @@ FORBIDDEN_NAMES = [
     (r"(^|/)[a-z]\d{2,3}-[a-z]", "unreleased track"),
 ]
 FORBIDDEN_TEXT = [
-    (r"/Users/[A-Za-z]|/home/[a-z]|[A-Z]:\\Users|~/[A-Za-z]", "local path"),
+    (r"/Users/[A-Za-z]|/home/[a-z]|/Volumes/[A-Za-z]|[A-Z]:\\Users|~/[A-Za-z]|\$HOME/[A-Za-z]", "local path"),
     (r'"account_id"\s*:', "account setting"),
-    (r"album[-_]\d", "album record"),
-    (r"(?<![\w#.-])[a-z]\d{2,3}-[a-z]", "unreleased track"),
+    (r"(?i)album[-_]\d", "album record"),
+    (r"(?i)(?<![\w#.-])[a-z]\d{2,3}[-_][a-z]", "unreleased track"),
     (r'"id"\s*:\s*"[a-z]\d', "unreleased track"),
     (r'^\s*def cover_geometry\(|^\s*(from|import)\s+engine\b', "track code"),
     (r"[A-Za-z0-9+/]{4096,}|(?:^[A-Za-z0-9+/=]{60,}\n){20,}", "large encoded blob"),
@@ -109,6 +109,8 @@ def scan(repo):
         for rule, why in FORBIDDEN_NAMES:
             if rule.search(ref):
                 problems.append(f"{ref}: {why}")
+    for why, line in text_problems(git(repo, "for-each-ref", "--format=%(contents)", "refs/tags").decode()):
+        problems.append(f"tag message: {why} (line {line})")
     for commit in commits:
         author, committer, body = git(repo, "show", "-s", "--format=%ae%x00%ce%x00%B", commit).decode().split("\0", 2)
         for mail in (author, committer):
