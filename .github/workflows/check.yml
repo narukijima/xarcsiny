@@ -1,0 +1,25 @@
+name: check
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  public:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+        with:
+          fetch-depth: 0
+      - name: Fetch every branch
+        run: git fetch --quiet origin '+refs/heads/*:refs/remotes/origin/*'
+      - name: Nothing private, in any commit
+        run: python3 scripts/check_public.py
+      - name: The check itself refuses what it should
+        run: python3 scripts/test_check_public.py
+      - name: The code still parses
+        run: |
+          python3 -m compileall -q tools scripts
+          node --check worker.js
+          node --check src/app.js

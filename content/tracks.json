@@ -1,0 +1,247 @@
+{
+ "sin-x": {
+  "style": "Electro pop",
+  "exact": "y = sin(x)",
+  "what": "The plainest curve in math: a point going around a circle, seen from the side.",
+  "decides": "The lead melody is this curve, cut into notes and snapped to the chords. Before the chorus the cuts get finer until the steps blur back into a curve.",
+  "composed": "Chords, form, bass, drums, brass and strings."
+ },
+ "euclid-7-16": {
+  "style": "Brazilian phonk",
+  "exact": "x(i) = ⌊(7i + 2)/16⌋ − ⌊(7(i − 1) + 2)/16⌋",
+  "what": "Spread 7 hits across 16 steps as evenly as you can. This is the formula that does it.",
+  "decides": "Every cowbell note lands on one of those 7 hits, with gaps of 2-3-2-2-3-2-2. That is the hook from the first second, and the 808 joins the same pattern in its home sections.",
+  "composed": "Hook pitches, the rest of the 808 line, drums and form."
+ },
+ "tan": {
+  "style": "Amapiano",
+  "exact": "y = tan(x)",
+  "what": "A curve that shoots up to infinity and comes back from the other side.",
+  "decides": "The log drum zips up this curve at the end of every note. Every four bars, the last note runs into the asymptote and is cut off two octaves up.",
+  "composed": "Chords, log-drum patterns, whistle hook, piano and brass."
+ },
+ "semitone": {
+  "style": "Phonk",
+  "exact": "f(n) = f<sub>0</sub> · 2<sup>n/12</sup>",
+  "what": "Each step up multiplies the pitch by the same number. Twelve steps make exactly one octave.",
+  "decides": "Every 808 and lead note is one step of this staircase. The hook climbs all twelve steps in two bars, then dives back to the bottom.",
+  "composed": "The 3-3-2 rhythm of the steps, form, drums and mix."
+ },
+ "abs-sin": {
+  "style": "Nu-disco",
+  "exact": "y = |sin(x)|",
+  "what": "A sine wave with its lower half flipped up, so it bounces instead of crossing zero.",
+  "decides": "The slap bass. Each beat is one arch: root, fifth, octave pop, fifth. Every valley bounces off the next root.",
+  "composed": "Chords, brass riff, chorus melody, strings and drums."
+ },
+ "fm": {
+  "style": "Brostep",
+  "exact": "y(t) = sin(ω<sub>c</sub>t + I · sin(ω<sub>m</sub>t))",
+  "what": "One sine wave wobbling the pitch of another. This is how FM synths make their sound.",
+  "decides": "The talking growl. Its “words” are curves drawn for I: move I and the vowel moves with it.",
+  "composed": "The word shapes, riff, harmony and form."
+ },
+ "golden-ratio": {
+  "style": "Afro groove",
+  "exact": "φ = (1 + √5) / 2",
+  "what": "The golden ratio. It also builds the Fibonacci word, a pattern that never repeats.",
+  "decides": "The muted guitar follows that word, so its accents slide off the bar and only land on the downbeat again after 8 bars. The congas play the swapped word against it.",
+  "composed": "Hook melody, choir harmony, flute, bass and form."
+ },
+ "shepard": {
+  "style": "Hardstyle",
+  "exact": "s(t) = Σ<sub>k</sub> A(log<sub>2</sub> f<sub>k</sub>(t)) sin φ<sub>k</sub>(t),&ensp;f<sub>k</sub>(t) = f<sub>0</sub> · 2<sup>k + frac(ct + u<sub>0</sub>)</sup>",
+  "what": "Sine waves stacked in octaves, rising and fading in turn. The ear hears a climb that never ends.",
+  "decides": "The endless rise under the hook and every drop, which never arrives. Every break gets the endless fall.",
+  "composed": "The screech hook and its layers, form and drums."
+ },
+ "mod-7": {
+  "style": "Banjo hoedown",
+  "exact": "y = x mod 7",
+  "what": "Count to 7, then start again. Clock arithmetic with a 7-hour clock.",
+  "decides": "A 7-note banjo roll runs over a 16-step bar, so its bright top note walks across the beat, bar after bar. In the break the roll shrinks to 5 and the accents crowd together.",
+  "composed": "Fiddle hook, chords, verse line, upright bass and stomp."
+ },
+ "one-seventh": {
+  "style": "Piano bass house",
+  "exact": "1/7 = 0.142857 142857 …",
+  "what": "Divide 1 by 7 and the digits 142857 repeat forever.",
+  "decides": "The bass. Each 16th takes the next digit, and the digit picks its octave, length and growl. Six digits against sixteen steps realign every 3 bars.",
+  "composed": "Piano hook, tempo, key and drums."
+ },
+ "lorenz": {
+  "style": "Reggaeton",
+  "exact": "ẋ = 10(y − x),&ensp;ẏ = x(28 − z) − y,&ensp;ż = xy − (8/3)z",
+  "what": "Three short equations for moving air. The path flips between two wings and never repeats.",
+  "decides": "Which chord loop you are in. The attractor picks a wing bar by bar, and the 808 slides across at every flip.",
+  "composed": "Marimba hook, the two chord loops, voice lines and drums."
+ },
+ "pi": {
+  "style": "Hyperpop trap",
+  "exact": "π = 3.14159 26535 89793 …",
+  "what": "The circle's number. Its digits never end and never settle into a pattern.",
+  "decides": "The digits count the beat. Stabs and hi-hats strike that many times per beat: 3 is a triplet, 9 is a nine-roll. A 0 stops everything.",
+  "composed": "Hook and verse melodies, harmony and form."
+ },
+ "e": {
+  "style": "Blues",
+  "exact": "y = e<sup>−x</sup> · sin(x)",
+  "what": "A wave that dies out. The shape of a spring after you flick it.",
+  "decides": "The lead's long notes wobble, shrink and go still like a struck spring. Bass notes jump the instant they are hit and snap back like rubber.",
+  "composed": "The 12-bar blues, the melody of each chorus, Rhodes and drums."
+ },
+ "beating": {
+  "style": "Accordion dance",
+  "exact": "sin(2πft) + sin(2π(f + d)t) = 2cos(πdt) · sin(2π(f + d/2)t)",
+  "what": "Two almost equal tones sounding together. They throb, louder and softer.",
+  "decides": "The accordion's pulse. Its held notes throb instead of sustaining, and the throb doubles from section to section.",
+  "composed": "All the melodies, chords, guitar and percussion."
+ },
+ "polyrhythm": {
+  "style": "Metallophone clockwork",
+  "exact": "3 : 4 : 5,&ensp;lcm(3, 4, 5) = 60",
+  "what": "Three counts running at once. They only meet again every 60 steps.",
+  "decides": "Three metallophone voices strike every 3, 4 and 5 sixteenths across a 5/4 bar. A gong rings where all three meet.",
+  "composed": "Hook, flute line, five-beat kick and sub bass."
+ },
+ "life": {
+  "style": "Rave techno",
+  "exact": "B3/S23",
+  "what": "Conway's Game of Life. A cell is born with 3 neighbors and survives with 2 or 3.",
+  "decides": "The board is the sequencer. Each live cell is a stab, each column a 16th, each row a chord tone. Births and deaths play the percussion too.",
+  "composed": "Lead melody, chord progression and the starting board."
+ },
+ "chirp": {
+  "style": "Irish jig",
+  "exact": "y = sin(x<sup>2</sup>)",
+  "what": "A wave that wiggles faster the further you go.",
+  "decides": "The tin whistle's ornaments. Each is a finger-run that speeds up as it climbs, and each held note wobbles faster and faster.",
+  "composed": "The tune, chords, guitar, bodhran and bass."
+ },
+ "doppler": {
+  "style": "Drift phonk",
+  "exact": "f′ = f · c / (c − v)",
+  "what": "Why a passing siren drops in pitch.",
+  "decides": "Every lead note is one passing car. The faster the car, the bigger the fall, so the melody is really a sequence of speeds.",
+  "composed": "Hook rhythm, the order of speeds, chords, tempo and drums."
+ },
+ "mandelbrot": {
+  "style": "Choir piano house",
+  "exact": "z<sub>n+1</sub> = z<sub>n</sub><sup>2</sup> + c",
+  "what": "Square it, add c, repeat. This rule draws the Mandelbrot set.",
+  "decides": "The call and response. Choir calls of 2, 3 and 4 notes are each one lap of an orbit: its period sets how many notes, its shape sets their order and lengths.",
+  "composed": "Chorus melody, chords, piano and drums."
+ },
+ "primes": {
+  "style": "Glass-bell pop",
+  "exact": "2, 3, 5, 7, 11, 13, …",
+  "what": "The numbers that only 1 and themselves can divide.",
+  "decides": "The bell rings only on prime overtones. Four loops of 2, 3, 5 and 7 sixteenths drift apart and line up every 210 steps, where a gong strikes.",
+  "composed": "Bell melody, whistle answers, chords and electric piano."
+ },
+ "fourier": {
+  "style": "Chip trap",
+  "exact": "sin(ωt) + sin(3ωt)/3 + sin(5ωt)/5 + …",
+  "what": "Add up odd sine waves and a square wave appears.",
+  "decides": "The lead riff. Every drop is entered through 16 very short notes where note k has k terms, so a sine assembles itself into a square in about a second.",
+  "composed": "The riff, counter lines, chords and drums."
+ },
+ "euler": {
+  "style": "Bhangra",
+  "exact": "e<sup>ix</sup> = cos x + i sin x",
+  "what": "The formula that ties e, i and the circle together. A point turning around a circle.",
+  "decides": "Where the tumbi stands. It circles you: left-right is cos, front-back is sin, and it turns faster as the track builds. Headphones help.",
+  "composed": "Flute hook, dhol, harmonium and bass."
+ },
+ "henon": {
+  "style": "Dub",
+  "exact": "x<sub>n+1</sub> = 1 − 1.4x<sub>n</sub><sup>2</sup> + y<sub>n</sub>,&ensp;y<sub>n+1</sub> = 0.3x<sub>n</sub>",
+  "what": "A two-line rule that never settles down and never repeats.",
+  "decides": "The echoes. Each repeat of a melodica note or rim shot takes its gap, side and level from one orbit, so the same pattern never forms twice.",
+  "composed": "Melodica tune, bass, organ and one-drop drums."
+ },
+ "logistic": {
+  "style": "Footwork",
+  "exact": "x → 3.83x(1 − x)",
+  "what": "A rule for how populations grow. At r = 3.83, chaos suddenly locks into a cycle of 3.",
+  "decides": "The voice chop that runs through the track: that 3-cycle as three notes, sliding against the beat. In a short collapse at r = 3.82 it bursts into chaos, then locks back.",
+  "composed": "Melody, chords, footwork form and drums."
+ },
+ "karplus-strong": {
+  "style": "Pluck house",
+  "exact": "y[n] = ρ · (y[n−N] + y[n−N−1]) / 2",
+  "what": "Take a burst of noise, feed it back on itself and keep averaging. It turns into a plucked string.",
+  "decides": "The hook riff, its octave double, the strummed chords and the plucked bass are all this recursion. ρ sets how long the strings ring and drives the arrangement.",
+  "composed": "The riff's melody and rhythm, chords and form."
+ },
+ "rule-30": {
+  "style": "Funk",
+  "exact": "a<sub>n+1</sub>(x) = a<sub>n</sub>(x−1) ⊕ (a<sub>n</sub>(x) ∨ a<sub>n</sub>(x+1))",
+  "what": "One row of cells, one small rule, endless disorder.",
+  "decides": "The clav. Every 16th is a stroke, and the center column decides which are open accents and which are muted ghosts. The pattern keeps moving while the groove stays put.",
+  "composed": "Horn hook, chords, slap bass and drums."
+ },
+ "xor-acid": {
+  "style": "Acid",
+  "exact": "t ⊕ (t ≫ 7)",
+  "what": "A counter XORed with a shifted copy of itself. A programmer's trick that makes patterns.",
+  "decides": "Where the acid line bites, slides and jumps an octave. Every 8 bars the accents walk one 16th earlier through the beat.",
+  "composed": "Acid pitches, the filter's path, break drums and organ."
+ },
+ "doubling": {
+  "style": "Drum and bass",
+  "exact": "x<sub>s</sub> = 2<sup>s</sup>",
+  "what": "Keep doubling. It takes very few steps to get very far.",
+  "decides": "The builds. The snare roll and bass wobble double their speed every two bars while the filter opens by an octave. The drop bass bounces by octaves.",
+  "composed": "Hook, chords and the drop bass line."
+ },
+ "lissajous": {
+  "style": "Swung 2-step",
+  "exact": "x = sin 3t,&ensp;y = sin 2t",
+  "what": "Two sine waves, one for x and one for y, drawing a looping figure.",
+  "decides": "Motion between your ears. The voice chop swings left-right three times while the organ swings twice, closing the figure every two bars.",
+  "composed": "Chords, hook and verse melodies, flute and swing."
+ },
+ "bytebeat": {
+  "style": "Bytebeat Jersey club",
+  "exact": "(t · X · 557 ≫ 10) &amp; 255,&ensp;X = ((t≫12) + (t≫13)) &amp; 25 &amp; (t≫10)",
+  "what": "One line of code whose raw output numbers, sent straight to the speaker, are the sound.",
+  "decides": "The lead from the first sample to the last. It is the formula's raw output, chopped in rhythm by a bouncing kick.",
+  "composed": "Form, where it is chopped, drums and voice sounds."
+ },
+ "hyperbola": {
+  "style": "Bright pop",
+  "exact": "y = 1/x",
+  "what": "It falls fast, then crawls toward zero and never touches it.",
+  "decides": "The falling whistle. One held note drops two octaves almost at once, then crawls, into every chorus.",
+  "composed": "All melodies, chords, form, drums and bass."
+ },
+ "full-chaos": {
+  "style": "Hard dance",
+  "exact": "x<sub>n+1</sub> = 4x<sub>n</sub>(1 − x<sub>n</sub>)",
+  "what": "The population rule at its extreme, where the numbers are fully chaotic.",
+  "decides": "The rumble bass. Each new value picks a note, a strength and a brightness. The builds walk r up the road to chaos, so the groove splits and falls apart.",
+  "composed": "Lead riff, break melody and drums."
+ },
+ "pure-sine": {
+  "style": "Rage trap",
+  "exact": "y = sin(2πft)",
+  "what": "The purest tone there is: a single frequency and nothing else.",
+  "decides": "The lead's timbre. The pure sine of the verse is pushed harder until it flattens into a screaming near-square in the drops, then falls back to pure at the end.",
+  "composed": "Hook, counter melody, chords and drums."
+ },
+ "sinc": {
+  "style": "Rolling bass",
+  "exact": "y = sin(x)/x",
+  "what": "A wave with one big peak in the center, ringing out smaller and smaller on both sides.",
+  "decides": "The laser zaps, which flutter on the side lobes in time with the track, and the lead's filter, which bursts open on the drop.",
+  "composed": "Lead motif, rolling bass and drums."
+ },
+ "collatz": {
+  "style": "Anthem pop",
+  "exact": "n → n/2 (even),&ensp;n → 3n + 1 (odd)",
+  "what": "Halve it if even, triple and add one if odd. Everyone expects it always reaches 1. Nobody has proved it.",
+  "decides": "The arpeggio and the form. It walks the path of 27 from the first second, climbs to 9232 at the peak of the second chorus, then falls all the way to 1.",
+  "composed": "Tempo, key, chords and form lengths."
+ }
+}

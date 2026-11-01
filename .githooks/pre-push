@@ -1,0 +1,11 @@
+#!/bin/sh
+# Stop a leak before it reaches GitHub. The second check holds what can't be named in a public repository.
+set -eu
+root=$(git rev-parse --show-toplevel)
+python3 "$root/scripts/check_public.py" --repo "$root"
+private=$(git config --get xarcsiny.privatecheck || true)
+if [ -z "$private" ]; then
+  echo "refused: xarcsiny.privatecheck is not set in this clone" >&2
+  exit 1
+fi
+"$private" --repo "$root"
