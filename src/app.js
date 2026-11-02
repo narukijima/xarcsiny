@@ -43,7 +43,7 @@
     nowTitle.textContent = t.title; nowTitle.href = `/tracks/${slug}/`;
     nowSub.textContent = `f(t) · ${t.n} / 35`;
     if ("mediaSession" in navigator) {
-      navigator.mediaSession.metadata = new MediaMetadata({ title: t.title, artist: "x=arcsin y", album: "f(t)", artwork: [{ src: "/assets/img/cover-f-t-600.jpg", sizes: "600x600", type: "image/jpeg" }] });
+      navigator.mediaSession.metadata = new MediaMetadata({ title: t.title, artist: "x=arcsin y", album: "f(t)", artwork: [{ src: "/assets/img/cover-f-t-r2-600.jpg", sizes: "600x600", type: "image/jpeg" }] });
     }
     sync();
     try { const d = await loadData(slug); if (P.cur === slug) { P.data = d; drawSeek(true); } } catch { /* the sound still plays without its curves */ }
