@@ -2,7 +2,7 @@
 
 The music, the track records and everything generated from them stay out of this repository, so a build reads their
 locations from a local JSON file: sources.local.json at the top of this repository, or the file named by XARCSINY_SOURCES.
-Values may start with ~. Keys: sheet, masters, records, events (with {track_id}), engine, cover, build, dist, wrangler, account_id, check.
+Values may start with ~. Keys: sheet, masters, records, events (with {track_id}), engine, cover, cover_delta, build, dist, wrangler, account_id, check.
 """
 import json
 import os

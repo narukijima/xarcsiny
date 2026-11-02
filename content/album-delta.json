@@ -1,0 +1,186 @@
+{
+ "title": "delta=r-V",
+ "slug": "delta-r-v",
+ "release_date": "2026-11-13",
+ "stores": "https://distrokid.com/hyperfollow/xarcsiny/deltar-v",
+ "total": "87:43",
+ "minutes": 87,
+ "about": "delta = r - V is the reward prediction error: what you get minus what you expected, the quantity dopamine neurons are reported to signal. Each track sets up an expectation with one equation and then breaks it. The album tries the idea on listeners; it is not evidence for it.",
+ "tracks": [
+  {
+   "n": 1,
+   "title": "y=arcsin sin(g arcsin sin x)",
+   "what": "The artist's name, folded twice."
+  },
+  {
+   "n": 2,
+   "title": "y=sgn sin x sgn sin rx",
+   "what": "Two square waves multiplied: a bell whose note is their difference."
+  },
+  {
+   "n": 3,
+   "title": "delta=r+gamma V'-V",
+   "what": "The reward prediction error: the equation dopamine neurons are measured to follow."
+  },
+  {
+   "n": 4,
+   "title": "a(2n+1)=a[n]+a[n+1]",
+   "what": "Stern's sequence: a(n)/a(n+1) lists every positive fraction once."
+  },
+  {
+   "n": 5,
+   "title": "y=n^2 mod m",
+   "what": "A machine counts the squares and sings each number at its own height."
+  },
+  {
+   "n": 6,
+   "title": "r=(|cos|^n+|sin|^n)^-1/n",
+   "what": "Gielis's superformula: the curve that draws circles and flowers, read as one turn of a wave."
+  },
+  {
+   "n": 7,
+   "title": "f=2^a 3^b",
+   "what": "Every frequency in the track is a product of twos and threes: the tempo, the chord and the key are one pair of numbers."
+  },
+  {
+   "n": 8,
+   "title": "dV/dt=w(tanh U-tanh V)",
+   "what": "Four stages in a ring: at k = 4 the filter becomes an oscillator."
+  },
+  {
+   "n": 9,
+   "title": "saw t-saw(t+phi)",
+   "what": "A saw minus itself shifted: phi moves a comb through it and it talks."
+  },
+  {
+   "n": 10,
+   "title": "I=2E^x/Kg",
+   "what": "Koren's equation for a triode, one 12AX7 stage: the sound of something being pushed too hard."
+  },
+  {
+   "n": 11,
+   "title": "f_n=(2n-1)c/4L",
+   "what": "An exhaust pipe closed at the valve: only odd modes, and the note is the length of the pipe."
+  },
+  {
+   "n": 12,
+   "title": "C dP/dt+P/R=Q(t)",
+   "what": "The windkessel: the arterial pressure of a heart at 145 beats a minute."
+  },
+  {
+   "n": 13,
+   "title": "y=x(p)",
+   "what": "A record is a function of position and a hand is a function of time."
+  },
+  {
+   "n": 14,
+   "title": "y=x+g y(t-tau)",
+   "what": "A delay fed back on itself: the note is a length of delay."
+  },
+  {
+   "n": 15,
+   "title": "mu=md+(ms-md)v0/[v0+|v|]",
+   "what": "Bow friction falls as slip speeds up."
+  },
+  {
+   "n": 16,
+   "title": "u=z(1-g+p)sqrt[g-p]",
+   "what": "Bernoulli flow through a cane reed on a pipe."
+  },
+  {
+   "n": 17,
+   "title": "u(0,t)>=-h",
+   "what": "A string with a floor under it: the sitar's bridge."
+  },
+  {
+   "n": 18,
+   "title": "d=2f x1/c",
+   "what": "A conical double reed: its pulse width grows with pitch, and harmonics at 1/d vanish."
+  },
+  {
+   "n": 19,
+   "title": "z'=(mu+iw)z-|z|^2 z",
+   "what": "The Hopf bifurcation: below a threshold of breath there is only hiss, above it a tone is born."
+  },
+  {
+   "n": 20,
+   "title": "f_k=f_1(r_k-Lr_k+Lk)",
+   "what": "Raman's loaded drum: a paste on the head moves the modes onto a harmonic series."
+  },
+  {
+   "n": 21,
+   "title": "f=|f0-1/(2 pi sqrt LC_d)|",
+   "what": "A theremin: pitch is one over the distance of a hand, and far out it falls through 0 Hz."
+  },
+  {
+   "n": 22,
+   "title": "2a1+a2 cos D+w2^2 sin D+2k sin t1=0",
+   "what": "The double pendulum at audio rate."
+  },
+  {
+   "n": 23,
+   "title": "d2x/dt2+dx'+x+x^3=F(t)",
+   "what": "The Duffing equation: a spring that gets stiffer the further it moves."
+  },
+  {
+   "n": 24,
+   "title": "R d2R/dt2+1.5R'^2=(p-p0)/rho",
+   "what": "The Rayleigh-Plesset equation: one bubble in water. Size is pitch, push is timbre, collapse is the build."
+  },
+  {
+   "n": 25,
+   "title": "y=sin(t+b y)",
+   "what": "A sine that hears itself: beta takes it from pure to saw to chaos."
+  },
+  {
+   "n": 26,
+   "title": "f_n=n f_0 sqrt(1+Bn^2)",
+   "what": "The partials of a stiff string: one number, B, runs from a pure tone through a piano to metal."
+  },
+  {
+   "n": 27,
+   "title": "f3=f2-f1",
+   "what": "F three equals f two minus f one (Tartini's third sound)."
+  },
+  {
+   "n": 28,
+   "title": "r=cos(11 theta)",
+   "what": "A rose curve with eleven petals."
+  },
+  {
+   "n": 29,
+   "title": "W(x)=sum a^k cos 3^k pi x",
+   "what": "Weierstrass: continuous everywhere, a slope nowhere."
+  },
+  {
+   "n": 30,
+   "title": "x=r(t-sin t)",
+   "what": "The cycloid, the curve where a bead takes the same time to fall from any height."
+  },
+  {
+   "n": 31,
+   "title": "sum cos(2 pi k t)",
+   "what": "Stack copies of a sound D hertz apart and the stack pulses by itself, D times a second."
+  },
+  {
+   "n": 32,
+   "title": "dI/dt=bSI-gI",
+   "what": "The SIR epidemic model: how a thing spreads from one person to everyone, and fades."
+  },
+  {
+   "n": 33,
+   "title": "1.01^365=37.78",
+   "what": "One percent a day, up or down, for a year."
+  },
+  {
+   "n": 34,
+   "title": "y=sum c_n cos(2 pi n^2 t/T)",
+   "what": "Quantum revival: a spread wave returns exactly at t = T."
+  },
+  {
+   "n": 35,
+   "title": "x=16 sin^3 t",
+   "what": "The curve that draws a heart, played as the wave of every voice and as the tempo of the song."
+  }
+ ]
+}

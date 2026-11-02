@@ -207,9 +207,10 @@ body.has-player .scope { bottom: var(--bar-h); }
 
 /* Albums */
 .albums { display: grid; gap: var(--section); padding: 0 var(--gutter) var(--section); }
-.next-album { border-top: 1px solid var(--ink); padding-top: calc(var(--u) * 2); }
-.next-album h2 { font-size: var(--t4); }
-.next-album p { margin-top: calc(var(--u) * 1.5); color: var(--ink-2); max-width: 34em; }
+.album-long h2, .album-long h1 { font-size: clamp(48px, 9vw, 128px); }
+.rows-text { list-style: none; margin: 0; padding: 0 var(--gutter); display: grid; }
+.rows-text li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: var(--gap); align-items: baseline; padding-block: calc(var(--u) * 1.5); border-top: 1px solid var(--line, #e6e6e6); }
+.rows-text p { margin-top: 4px; color: var(--ink-2); max-width: 44em; }
 .album-meta { padding: calc(var(--u) * 6) var(--gutter) 0; display: grid; grid-template-columns: 1.618fr 1fr; gap: clamp(32px, 6vw, 96px); }
 .album-meta p { font-size: var(--t1); line-height: 1.5; max-width: 34em; }
 
