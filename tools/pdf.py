@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""One printable PDF per score: the engraved lines in order, under a plain title. Written to site-build/pdf/<slug>.pdf."""
+"""One printable PDF per score: the engraved lines in order, under a plain title. Written to the build folder, pdf/<slug>.pdf.
+
+usage: pdf.py [SLUG ...]
+"""
 from concurrent.futures import ThreadPoolExecutor
 import html
 import json
@@ -41,7 +44,8 @@ def one(r):
 
 def main():
     (BUILD / "pdf").mkdir(exist_ok=True)
-    rows = json.loads((SITE / "data" / "tracks.json").read_text())
+    only = set(sys.argv[1:])  # slugs; none means every score
+    rows = [r for r in json.loads((SITE / "data" / "tracks.json").read_text()) if r.get("album", "f-t") == "f-t" and (not only or r["slug"] in only)]
     with ThreadPoolExecutor(6) as ex:
         results = list(ex.map(one, rows))
     print(len(results), "PDFs", sum(s for _, s in results) // 1_000_000, "MB", max(s for _, s in results) // 1_000_000, "MB largest")

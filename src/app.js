@@ -6,7 +6,8 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch { /* private mode */ } } };
 
-  const tracks = JSON.parse($("#tracks").textContent).map(([n, slug, title, hook, duration]) => ({ n, slug, title, hook, duration }));
+  const albums = JSON.parse($("#albums").textContent).map(([title, image]) => ({ title, image }));
+  const tracks = JSON.parse($("#tracks").textContent).map(([n, slug, title, hook, duration, album, score]) => ({ n, slug, title, hook, duration, album: albums[album], score: !!score }));
   const bySlug = Object.fromEntries(tracks.map(t => [t.slug, t]));
   const cache = new Map();
 
@@ -41,9 +42,9 @@
     audio.play().catch(() => sync());
     document.body.classList.add("has-player"); bar.classList.add("on");
     nowTitle.textContent = t.title; nowTitle.href = `/tracks/${slug}/`;
-    nowSub.textContent = `f(t) · ${t.n} / 35`;
+    nowSub.textContent = `${t.album.title} · ${t.n} / 35`;
     if ("mediaSession" in navigator) {
-      navigator.mediaSession.metadata = new MediaMetadata({ title: t.title, artist: "x=arcsin y", album: "f(t)", artwork: [{ src: "/assets/img/cover-f-t-r2-600.jpg", sizes: "600x600", type: "image/jpeg" }] });
+      navigator.mediaSession.metadata = new MediaMetadata({ title: t.title, artist: "x=arcsin y", album: t.album.title, artwork: [{ src: `/assets/img/${t.album.image}-600.jpg`, sizes: "600x600", type: "image/jpeg" }] });
     }
     sync();
     try { const d = await loadData(slug); if (P.cur === slug) { P.data = d; drawSeek(true); } } catch { /* the sound still plays without its curves */ }
@@ -167,7 +168,7 @@
       const here = P.cur === page.slug;
       drawScope(page.trackScope, page.trackData, here ? t : page.trackData.rest, here && !audio.paused);
     }
-    if (page.rider && P.cur === page.slug && page.trackData) {
+    if (page.rider && P.cur === page.slug && page.trackData && page.trackData.bars) {
       const bars = page.trackData.bars; let lo = 0, hi = bars.length - 1;
       while (lo < hi - 1) { const m = lo + hi >> 1; bars[m] <= t ? lo = m : hi = m; }
       const f = (t - bars[lo]) / ((bars[lo + 1] - bars[lo]) || 1);
@@ -201,7 +202,7 @@
     if (!title) return;
     if (title.dataset.slug !== P.cur) {
       title.dataset.slug = P.cur; title.textContent = t.title; title.href = `/tracks/${t.slug}/`;
-      what.textContent = a ? a.dataset.what : ""; score.href = `/scores/${t.slug}/`; fit(title, Math.max(44, Math.min(120, innerWidth * .09)));
+      what.textContent = a ? a.dataset.what : ""; score.href = `/scores/${t.slug}/`; score.style.display = t.score ? "" : "none"; fit(title, Math.max(44, Math.min(120, innerWidth * .09)));
     }
   }
 
@@ -271,12 +272,18 @@
   function initLibrary() {
     const box = $(".rows"); if (!box) return;
     const rows = $$(".row", box), search = $(".search"), empty = $(".empty");
+    let album = "";
     const apply = () => {
       const q = (search.value || "").trim().toLowerCase(); let shown = 0;
-      rows.forEach(r => { const hit = !q || r.dataset.q.includes(q); r.hidden = !hit; if (hit) shown++; });
+      rows.forEach(r => { const hit = (!q || r.dataset.q.includes(q)) && (!album || r.dataset.album === album); r.hidden = !hit; if (hit) shown++; });
       empty.hidden = shown > 0;
     };
+    if (!search) return; // an album page lists rows with no tools
     search.addEventListener("input", apply);
+    $$(".pick button").forEach(b => b.addEventListener("click", () => {
+      $$(".pick button").forEach(x => x.classList.toggle("on", x === b));
+      album = b.dataset.album; apply();
+    }));
     $$(".sort button").forEach(b => b.addEventListener("click", () => {
       $$(".sort button").forEach(x => x.classList.toggle("on", x === b));
       const k = b.dataset.sort, dir = k === "bpmd" ? -1 : 1, key = k === "bpmd" ? "bpm" : k;

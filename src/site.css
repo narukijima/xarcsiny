@@ -123,10 +123,10 @@ body.has-player .scope { bottom: var(--bar-h); }
 .search { flex: 1 1 200px; max-width: 360px; height: 40px; border: 0; border-bottom: 1px solid var(--ink); background: none; font: inherit; padding: 0 2px; border-radius: 0; color: var(--ink); -webkit-appearance: none; }
 .search::placeholder { color: var(--ink-3); }
 .search:focus { outline: none; border-bottom-width: 2px; }
-.sort { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 15px; }
-.sort button, .views button { color: var(--ink-3); padding: 6px 0; transition: color .15s; }
-.sort button:hover, .views button:hover { color: var(--ink); }
-.sort button.on, .views button.on { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
+.sort, .pick { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 15px; }
+.sort button, .views button, .pick button { color: var(--ink-3); padding: 6px 0; transition: color .15s; }
+.sort button:hover, .views button:hover, .pick button:hover { color: var(--ink); }
+.sort button.on, .views button.on, .pick button.on { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
 .views { margin-left: auto; display: flex; gap: 14px; font-size: 15px; }
 .rows { padding-inline: var(--gutter); }
 .row { display: grid; grid-template-columns: 56px minmax(0, 2.6fr) minmax(0, 1fr) minmax(90px, 1.6fr) 48px minmax(0, .9fr) 48px; align-items: center; gap: var(--gap); padding-block: 10px; border-top: 1px solid var(--line); }
@@ -169,6 +169,7 @@ body.has-player .scope { bottom: var(--bar-h); }
 .figure { position: relative; }
 .figure svg { width: 100%; height: auto; }
 .figure .rider { fill: var(--ink); }
+.figure-note { margin-top: 12px; font-size: var(--t-1); line-height: 1.5; color: var(--ink-3); max-width: 34em; }
 .peek { display: block; margin-top: 0; overflow: hidden; }
 .peek img { width: 100%; min-width: 620px; }
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); padding: var(--section) var(--gutter) var(--section); font-size: var(--t1); font-weight: 500; }

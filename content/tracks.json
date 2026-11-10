@@ -243,5 +243,495 @@
   "what": "Halve it if even, triple and add one if odd. Everyone expects it always reaches 1. Nobody has proved it.",
   "decides": "The arpeggio and the form. It walks the path of 27 from the first second, climbs to 9232 at the peak of the second chorus, then falls all the way to 1.",
   "composed": "Tempo, key, chords and form lengths."
+ },
+ "fold": {
+  "style": "Talking bass",
+  "exact": "y = arcsin(sin(g·arcsin(sin x)))",
+  "what": "The artist's name, folded twice.",
+  "decides": "The bass is the formula: a triangle folded back on itself. Moving g opens and closes it like a mouth, so the bass talks. It is the loudest thing in the track and the first thing heard, under a cowbell line.",
+  "composed": "Bass line Gm | Eb D; the cowbell line; drums, sub octave under the fold, form, mix."
+ },
+ "cowbell": {
+  "style": "Drift phonk",
+  "exact": "y = sgn(sin 2πft) · sgn(sin 2πrft)",
+  "what": "Two square waves multiplied: a bell whose note is their difference.",
+  "decides": "The hook is the bell. The strongest line of the product is the difference tone (r - 1) f, tuned to the melody; the clang above it is 5.15 times that at r = 1.4815, the ratio of the classic drum machine's cowbell. At r = 3/2 the clang is exactly 5 and the bell goes glassy. The riser is r opening from 1.02 at fixed f: the note climbs out of the floor and lands on F5.",
+  "composed": "The riff and the b tune, chords Fm Fm Db C and Db Eb Fm Fm, the 808 line, drums, form, mix."
+ },
+ "dopamine": {
+  "style": "Bright melody",
+  "exact": "δ<sub>t</sub> = r<sub>t</sub> + γV(s<sub>t+1</sub>) − V(s<sub>t</sub>)",
+  "what": "The reward prediction error: the equation dopamine neurons are measured to follow.",
+  "decides": "The hook is what the learner expects. A reward comes from nowhere as a short accent; on each pass the run up to it appears earlier and climbs into place, until by the first chorus the learner has written the melody. Remove the rewards and the melody sinks. Withhold the reward it is surest of and the track falls into a hole, at the lowest delta of the track, one note short of the top; then the largest surprise of the track arrives in a key it did not predict.",
+  "composed": "The peaks of the melody and the schedule of rewards, the rhythm, the chords, the key change, form, drums and mix."
+ },
+ "stern": {
+  "style": "Happy hardcore",
+  "exact": "x → 1/(2⌊x⌋ − x + 1);&ensp;a(2n) = a(n), a(2n+1) = a(n) + a(n+1), a(1) = 1",
+  "what": "Stern's sequence: a(n)/a(n+1) lists every positive fraction once, and this map steps from each fraction to the next.",
+  "decides": "The hook is the tune: the first 32 terms in eighth notes, each term a degree of the major pentatonic, exactly as they fall. It keeps stepping home and leaping further.",
+  "composed": "The scale it is read on, the eighth-note rhythm, the chords under it, the plain piano tune in the break, the stack, drums, form, mix."
+ },
+ "square-mod": {
+  "style": "Counting voice and drums",
+  "exact": "y = n<sup>2</sup> mod m",
+  "what": "A machine counts the squares and sings each number at its own height.",
+  "decides": "The hook is the formula read aloud: a computed mouth says 'one four nine sixteen one twelve, one sixteen nine four one zero' at those heights. The track's only control is m: the tune grows as m grows, m = 1 is the build (zero zero zero on the leading tone), m = 48 is the last hook with its notes thrown into other octaves.",
+  "composed": "The rhythm grid and tempo, the chord rule, the order of the moduli, the sound of the mouth, drums, form and mix."
+ },
+ "superformula": {
+  "style": "Drum and bass",
+  "exact": "r(θ) = (|cos(mθ/4)|<sup>n</sup> + |sin(mθ/4)|<sup>n</sup>)<sup>−1/n<sub>1</sub></sup>, y = r(θ) sin θ",
+  "what": "Gielis's superformula: the curve that draws circles and flowers, read as one turn of a wave.",
+  "decides": "At n = 2 the curve is a circle and the wave a pure sine. Moving n away from 2 opens the circle into m points. Every note of the bass riff opens and closes like a mouth, and m says where the mouth is. The climbs are n leaving 2 on one held note.",
+  "composed": "The riff, the melody and its answer, chords Gm Eb Bb F, drums (two-step), form, the mix."
+ },
+ "two-three": {
+  "style": "Three against two",
+  "exact": "f = 2<sup>a</sup>3<sup>b</sup>",
+  "what": "Every frequency in the track is a product of twos and threes: the tempo, the chord and the key are one pair of numbers.",
+  "decides": "The hook is the moment a rhythm becomes a chord. The two pulses that drive the track, 2 and 3 per second, are doubled seven times until the clicks are the notes C4 and G4, and that tone is what lands on the chorus; and the melody's unit is three notes at 3 per second, then two notes at 2 per second. In the last part the kick moves from 2 to 3 per second and the key from C to G, by the same factor, so the same melody that crossed the beat lands on it.",
+  "composed": "The chorus, verse and valley melodies, the chords, the form, drums, both bass lines and mix."
+ },
+ "ladder303": {
+  "style": "Acid techno",
+  "exact": "dV<sub>i</sub>/dt = ω(tanh V<sub>i−1</sub> − tanh V<sub>i</sub>), V<sub>0</sub> = x − kV<sub>4</sub>",
+  "what": "Four stages in a ring: at k = 4 the filter becomes an oscillator.",
+  "decides": "The hook is the squelch of the acid line, a saw through the ring just under its edge, and the melody is the same circuit over the edge at k = 4.3, sounding its own cutoff with almost no input. The climbs are the ring alone pulled up five octaves' worth of cutoff.",
+  "composed": "The acid line, its accents and slides, the melody, the cut and resonance moves, drums, form, mix."
+ },
+ "phase": {
+  "style": "Dubstep",
+  "exact": "y = saw(t) − saw(t + φ(t))",
+  "what": "A saw minus itself shifted: phi moves a comb through it and it talks.",
+  "decides": "The hook is the talking bass. Harmonic k of the difference is multiplied by 2 sin(k phi / 2), so turning phi moves a comb through the sound; at phi = 0 there is silence. Every wub in the drops is one trip of phi. The pad, the bell and the climbs are the same subtraction.",
+  "composed": "The bass notes and the shape of each word, the band that opens with phi, distortion, chords, tune, half-time drums, form, mix."
+ },
+ "triode": {
+  "style": "Hard dance",
+  "exact": "C v̇ = (B − v)/R − 2E<sup>x</sup> / K<sub>g</sub>,  E = (v/K<sub>p</sub>) ln(1 + exp(K<sub>p</sub> (1/μ + u/√(K<sub>vb</sub> + v<sup>2</sup>))))",
+  "what": "Koren's equation for a triode, one 12AX7 stage: the sound of something being pushed too hard.",
+  "decides": "Every sound in the track with an edge is this one tube stage. The kick falls to the chord's root through it and its tail is a pitched burn. The lead is each melody note with a chord tone below it through one stage per unison voice, so the tone the tube adds is on the chord. The chords are root and fifth on one stage and the third on another. Hats, clap and crash are noise clipped by it. More voltage makes it harder and hardly louder: the build plays the same notes at 2.5, 7 and 16 V under a held root and fifth whose voltage climbs from 0.5 to 30 V.",
+  "composed": "Tempo, key and chords, the hook, the kick and bass patterns, the form, the valley's tune and the mix."
+ },
+ "engine": {
+  "style": "Machine psychedelic trance",
+  "exact": "f<sub>n</sub> = (2n − 1) c / (4L)",
+  "what": "An exhaust pipe closed at the valve: only odd modes, and the note is the length of the pipe.",
+  "decides": "The bass is one running pipe with odd modes only, a hollow square whose note is the length of the pipe: 1.73 m is G1. Four firings a beat, heavy on the first, relight the modes. All low layers share its one phase.",
+  "composed": "The ratchet riff and whistle tunes; the turbo, chain, press, drums, form, mix; the teeth of the ratchet are the logistic map."
+ },
+ "pulse": {
+  "style": "Heavy psychedelic trance",
+  "exact": "C dP/dt + P/R = Q(t)",
+  "what": "The windkessel: the arterial pressure of a heart at 145 beats a minute.",
+  "decides": "Flow pulses on the sixteenths 0, 2 and 3 of every beat go through the windkessel; the pressure never empties, so the bass never stops. It sets the size of the bass, how far its filter opens, and how far the few other sounds are pressed down. All low layers share one phase.",
+  "composed": "The bass line F# F# A G, the short machine phrase and the arpeggio; rare machine blips and the colour of the growl (chaos by the Henon map); drums, form, mix."
+ },
+ "scratch": {
+  "style": "Big beat",
+  "exact": "y(t) = x(p(t)), f(t) = f<sub>x</sub> |p′(t)|",
+  "what": "A record is a function of position and a hand is a function of time.",
+  "decides": "The riff is scratching written as a function: pitch is the speed of the hand, so the scratch is in tune and on the grid. At p' = 0 it says nothing, and each drop is preceded by the whole mix spun back through p' = 0 to p' = -8.",
+  "composed": "The record, the moves of the hand, the fuzz bass, the horn line, the break, form, mix."
+ },
+ "comb": {
+  "style": "French electro",
+  "exact": "y(t) = x(t) + g·y(t − τ(t))",
+  "what": "A delay fed back on itself: the note is a length of delay.",
+  "decides": "The hook is the riff: raw noise and a harsh saw go into the loop and it rings at 1 / tau, so the notes are lengths of delay and the slides are the delay changing. With g < 0 the resonances move to (k + 1/2) / tau, the note falls an octave and goes hollow; that flip is the b section.",
+  "composed": "The riff, the input noise and saw, tanh in the loop, drums, the pump, form, mix."
+ },
+ "bow": {
+  "style": "Fiddle trance",
+  "exact": "μ(v) = μ<sub>d</sub> + (μ<sub>s</sub> − μ<sub>d</sub>) v<sub>0</sub> / (v<sub>0</sub> + |v|)",
+  "what": "Bow friction falls as slip speeds up.",
+  "decides": "The hook is a run on computed fiddles. There is no oscillator: friction grips and lets go of a string and a corner running along it sets the pitch (Helmholtz motion). How hard the bow presses picks the sound: light is the octave, between is the clean note, hard is the snarl, and every accent digs in.",
+  "composed": "The runs, the long tune, chords, the fixed wooden box resonances, the cello line, drums, form, mix."
+ },
+ "reed": {
+  "style": "Brass house",
+  "exact": "u = ζ(1 − γ + p)√(γ − p)",
+  "what": "Bernoulli flow through a cane reed on a pipe.",
+  "decides": "The hook is the bark of a reed: the flow law on the end of a pipe plays itself once the breath g passes 1/3, and pushing past that makes it bark. Every horn and the bass are the same line on a pipe of another length.",
+  "composed": "The riff, the long tune, horn chords, bass line, sub, drums, form, mix, the fixed body formants."
+ },
+ "jawari": {
+  "style": "Psytrance",
+  "exact": "u<sub>tt</sub> = c<sup>2</sup> u<sub>xx</sub>, u(0,t) ≥ −h",
+  "what": "A string with a floor under it: the sitar's bridge.",
+  "decides": "The riff and melody are a string that can only move one way at its bridge. Each slap folds the wave and throws energy upward, so the note buzzes until it has decayed below h. One number, h, is the sound; the climb is h coming down.",
+  "composed": "The riff and the theme in the mode B C D# E F# G A, the drums and rolling bass, form, mix."
+ },
+ "zurna": {
+  "style": "Hard psychedelic trance",
+  "exact": "d = 2f x<sub>1</sub> / c",
+  "what": "A conical double reed: its pulse width grows with pitch, and harmonics at 1/d vanish.",
+  "decides": "The lead is a narrow pressure pulse whose width follows the pitch by d = 2 f x_1 / c, through the resonances of the bell. Two players a few cents apart. Lorenz moves the acid filter, its stereo position and the riser tone; the kick and bass never move.",
+  "composed": "Both tunes and the ornaments; the acid pattern, rolling bass, davul, form, mix."
+ },
+ "whistle": {
+  "style": "Dark western electro",
+  "exact": "z′ = (μ + iω)z − |z|<sup>2</sup>z",
+  "what": "The Hopf bifurcation: below a threshold of breath there is only hiss, above it a tone is born.",
+  "decides": "The whistle is the Hopf normal form with breath as mu and turbulence as noise: the airy start where the phase has no anchor, the swell to sqrt(mu), the thin edge when the breath drops.",
+  "composed": "Both tunes; the guitar answers, gallop bass, men, trumpets, whip, form, mix."
+ },
+ "dhol": {
+  "style": "Bhangra bass",
+  "exact": "f<sub>k</sub> = f<sub>1</sub>((1 − L) r<sub>k</sub> + L k)",
+  "what": "Raman's loaded drum: a paste on the head moves the modes onto a harmonic series.",
+  "decides": "The low head of the dhol is five modes moved from the bare Bessel ratios to 1 2 3 4 5 by the load L. L grows through the track, so the thud of the intro becomes a bass that plays the chords, with a pressed slide at the end of every second bar.",
+  "composed": "The tumbi riff and the long tune; the bass notes, the harmonium, the hoy, form, mix."
+ },
+ "theremin": {
+  "style": "Hard NRG",
+  "exact": "f = |f<sub>0</sub> − 1/(2π√(L(C + k/d)))|",
+  "what": "A theremin: pitch is one over the distance of a hand, and far out it falls through 0 Hz.",
+  "decides": "The tune is the difference of two 170 kHz oscillators with a hand adding k / d to one capacitor. Notes are written as hand distances and the hand follows at 16 Hz, in metres, so slides are hand-shaped: a jump up crawls and then snaps. At each drop the arm goes out through the null at 1 m and the note falls through 0 Hz.",
+  "composed": "The notes of the tune and the climb; the harmonics and drive on the difference tone; stabs, pad, bass, drums, form, mix."
+ },
+ "pendulum": {
+  "style": "EBM",
+  "exact": "2θ<sub>1</sub>″ + θ<sub>2</sub>″cos Δ + θ<sub>2</sub>′<sup>2</sup> sin Δ + 2k sin θ<sub>1</sub> = 0, θ<sub>2</sub>″ + θ<sub>1</sub>″cos Δ − θ<sub>1</sub>′<sup>2</sup> sin Δ + k sin θ<sub>2</sub> = 0",
+  "what": "The double pendulum at audio rate.",
+  "decides": "The bass line is a double pendulum let go from a chosen height, sixteen times a bar. Let go from low it rings in two pure tones exactly 1 + sqrt(2) apart; let go from high it throws itself over the top and the note tears, then falls back as the swing dies. The glass tune is the same pendulum from very low.",
+  "composed": "The bass line, the glass tune, the fixed mouth on the swing, the sub, drums, form, mix."
+ },
+ "duffing": {
+  "style": "Bell and rubber bass",
+  "exact": "ẍ + d ẋ + ω<sub>0</sub><sup>2</sup> (x + b x<sup>3</sup>) = F(t)",
+  "what": "The Duffing equation: a spring that gets stiffer the further it moves.",
+  "decides": "The hook: the same note struck softly is a clean 'ten', struck hard it starts up to about 15 semitones high, never above 3 kHz, and falls onto itself within about 100 ms, 'pyun'. The kick, toms and bass are that same fall lower down. The track opens on the driven oscillator climbing a leaning resonance and falling off the cliff; the second chorus starts on the falling drive suddenly catching, and the note it catches on is its key.",
+  "composed": "Key, tempo and chords, the hook and its rhythm, the chorus tune, the form, the chord sound, drums and mix."
+ },
+ "bubble": {
+  "style": "Bubbles at every size",
+  "exact": "RR̈ + (3/2)Ṙ<sup>2</sup> = (p<sub>g</sub> − p<sub>0</sub> − P)/ρ",
+  "what": "The Rayleigh-Plesset equation: one bubble in water. Size is pitch, push is timbre, collapse is the build.",
+  "decides": "The hook is first played by tiny bubbles (R = 3.3 mm at B5), each one rising into its note with a bloop. Every build is Rayleigh's collapse: the arpeggio and the roll fire when R crosses set sizes, so they accelerate by that law to a singularity, then one beat of silence. The drop is the same hook on bubbles exactly 8 times larger (R = 26.6 mm at B2, 3 octaves lower), pushed hard enough that their sine has become a nearly saw-like series; in the last drops the drive passes the period-doubling point on notes that are the chord's root or fifth, and the bass grows its own exact octave below.",
+  "composed": "The hook and its answers, the valley's melody, key, tempo, chords, form, drum patterns and mix."
+ },
+ "feedback": {
+  "style": "Hard techno",
+  "exact": "y[n] = sin(θ[n] + β(y[n−1] + y[n−2])/2)",
+  "what": "A sine that hears itself: beta takes it from pure to saw to chaos.",
+  "decides": "The hook is the screaming riff: each stab starts with beta high, in chaos, and falls back on to the note. Through the track beta rises. In the calm the same voice with beta near zero is a pure tune, and beta turns that same tune into the scream before each drop.",
+  "composed": "The riff, the calm tune, how beta moves, the rumbling kick, drums, form, mix."
+ },
+ "stiff": {
+  "style": "Piano groove",
+  "exact": "f<sub>n</sub> = n·f<sub>0</sub>·√(1 + B·n<sup>2</sup>)",
+  "what": "The partials of a stiff string: one number, B, runs from a pure tone through a piano to metal.",
+  "decides": "The star is a syncopated piano-law chord whose top note is the melody; B is what it sounds like at every moment. In the pre the notes stay in the chords while B alone roughens them up to its measured roughness peak, with a pure copy of the top and root held under them so the key stays plain, the string snaps into a long falling wire strike, and the drop gives B back. The short 'pyun' answering the chords is the same law on a very long wire.",
+  "composed": "The hook and the second theme, the chords, the peak, the drum grooves, bass lines, form and mix."
+ },
+ "tartini": {
+  "style": "Plucked riff in 7/4",
+  "exact": "f<sub>3</sub> = f<sub>2</sub> − f<sub>1</sub>",
+  "what": "F three equals f two minus f one (Tartini's third sound).",
+  "decides": "The hook is a riff whose lowest note nobody plays: plucked strings at exact integer multiples of f_3, and the distortion of the amp sounds f_3 and its whole series. The same riff on octaves has no such note; on fifths the floor opens an octave below every string (0:07).",
+  "composed": "The riff, the form, the chorus progression and its top line, the verse phrases, drum patterns and mix."
+ },
+ "rose": {
+  "style": "Vowel riff",
+  "exact": "r = cos(11θ)",
+  "what": "A rose curve with eleven petals.",
+  "decides": "The hook's sound: the riff has eleven notes and the rose has eleven petals, so each note leaves the centre, reaches a petal tip and comes back. Its distance opens the filter, y moves the second formant, x swings the mouth from side to side. Every note says its own 'wow', the same one each time the riff comes back, while pitch and beat stay fixed. The same curve, slowly, circles the phaser's notch around the head.",
+  "composed": "Tempo, key and groove, the riff, the harmony, the form, drums, pad, plucks and mix."
+ },
+ "weierstrass": {
+  "style": "Euphoric hardstyle",
+  "exact": "W(x) = Σ a<sup>k</sup> cos(3<sup>k</sup>πx)",
+  "what": "Weierstrass: continuous everywhere, a slope nowhere.",
+  "decides": "The lead and the kick are one cycle of the Weierstrass function. a = 0 is a sine; as a rises smaller copies of the curve grow on it, each a twelfth up, until past a = 1/3 it has no slope and it screams. One number opens the track.",
+  "composed": "The tune, chords, the rhythm of the rolling bass, drums, form, mix."
+ },
+ "tautochrone": {
+  "style": "Melody over double-time drums",
+  "exact": "x = r(θ − sin θ), y = r(1 − cos θ)",
+  "what": "The cycloid, the curve where a bead takes the same time to fall from any height.",
+  "decides": "The hook is the landing. The short falling accent, every bass slide, every note of the riff and the chain of voices into each chorus all fall on this curve. One semitone and two octaves take the same time, so voices let go from different heights land together on one beat. It is the sound the track is remembered by, and it is what makes the drop.",
+  "composed": "The chorus, verse and pre-chorus melodies, the chords, the riff, the form, the voice sound, drums and mix."
+ },
+ "dirichlet": {
+  "style": "Euphoric trance",
+  "exact": "Σ<sub>k=−N</sub><sup>N</sup> cos(2πkDt) = sin((2N+1)πDt) / sin(πDt)",
+  "what": "Stack copies of a sound D hertz apart and the stack pulses by itself, D times a second.",
+  "decides": "There is no gate in the track. The pulsing chords are 2N+1 copies spaced D hertz apart, which line up D times a second and cancel in between. Before each drop D doubles until the pulse is the note D4, because the tempo was chosen so that 32 times the sixteenth rate is D4.",
+  "composed": "The 3-3-2 melody and its octave, the valley theme, chords Dm Bb F C | Dm Bb Gm A, form, kick, bass two sixteenths after the kick, drums, mix, the hole before the drops."
+ },
+ "earworm": {
+  "style": "Stadium chant",
+  "exact": "dI/dt = βSI/N − γI",
+  "what": "The SIR epidemic model: how a thing spreads from one person to everyone, and fades.",
+  "decides": "The hook being caught. The track goes from one machine voice to a crowd of thousands, the number sounding at each note is I from the equation. The build is the transmissions: one short falling chirp per new case, single at first, then a roll, then a swarm, doubling because the epidemic doubles. The first chorus contains the peak of I (bar 36); the peak of the second wave (bar 92.9) falls in the lift of the second chorus. The valley is R: everyone who sounded now hums the chords. At the mutation R falls to zero, so the hum stops dead and one voice plays the hook alone with its third raised.",
+  "composed": "The hook and its answer, the verse and pre-chorus lines, all chords, the form, the voice model, bass, drums and mix."
+ },
+ "compound": {
+  "style": "Minor to major",
+  "exact": "1.01<sup>365</sup> = 37.78, 0.99<sup>365</sup> = 0.02552",
+  "what": "One percent a day, up or down, for a year.",
+  "decides": "The hook is the equation itself: its digits are the melody, played alone in minor, in three parts in major, and at the end only its answer, 37.78, four times. The sound people will remember is a single hit that gets 1 percent faster and 1 percent brighter 365 times, from a slow knock to a blur to a rising tone. Every bass note of the track is that same hit repeated at the period of the note, so the roll is the bass sped up from nothing. The same law runs the other way at the end of the first chorus, where the bass slows down into separate knocks.",
+  "composed": "The rhythm and phrasing of the hook, minor then major, all chords, the three-part harmony, the verse and pre-chorus melodies, the form, the sounds and mix."
+ },
+ "revival": {
+  "style": "Breaks",
+  "exact": "y(t) = Σ c<sub>n</sub> cos(2πn<sup>2</sup>t / T)",
+  "what": "Quantum revival: a spread wave returns exactly at t = T.",
+  "decides": "Three uses of one sum. T = a bar: the buzz sharpens on the beat and melts between with no envelope. T = 8 bars: a wash of partials comes home to one click on the first beat of the drop. T = one cycle of a note: the lead, with partials 1, 4, 9, 16, 25.",
+  "composed": "The lead tune, chords, sub, the break, form, mix."
+ },
+ "heart": {
+  "style": "Love song, no words",
+  "exact": "x = 16 sin<sup>3</sup>t, y = 13 cos t − 5 cos 2t − 2 cos 3t − cos 4t",
+  "what": "The curve that draws a heart, played as the wave of every voice and as the tempo of the song.",
+  "decides": "The most addictive thing is the tempo itself: the track really slows from 144 to 72, the melody turns into a flat line at the exact middle, the heart starts again with the hook at half speed, and a rising figure really accelerates back to 144, one beat is skipped, and the last chorus lands a tone higher. Around that: every pitched voice is one wave, the curve itself, so nothing in the track comes from a different family; the short accent is one trip round the heart in pitch and in the stereo field; the bright constant arpeggio draws one heart per chord.",
+  "composed": "The key and chords, all melodies, the form, where the beats are skipped, the kick pattern, drums, bass rhythm and mix."
+ },
+ "powers-medley": {
+  "style": "Phonk",
+  "exact": "y = x, x<sup>2</sup>, x<sup>3</sup>, x<sup>4</sup>",
+  "what": "The first four powers of x, one drop each.",
+  "decides": "Inside one note the lead and the 808 move 12 * x^k semitones while x runs from -1 to 1. Odd powers rise from an octave below to an octave above; even ones fall to the note and come back. Drop k uses x^k; the last drop plays x, x^2, x^3, x^4 one beat each; the break holds all four as a chord.",
+  "composed": "The cowbell tune; the Em-F phrygian swing; the 808 line in the verse; drums, form, mix."
+ },
+ "pi-dial": {
+  "style": "Piano house",
+  "exact": "π = 3.14159 26535 89793 …",
+  "what": "Pi to ten decimal places: one digit per bar picks the chord, and every 0 stops the band.",
+  "decides": "The track dials pi on a touch-tone phone (the real keypad tones). One digit per bar picks the bar's chord in Bb major (1=I ... 9=V/vi); the hook is the first eight digits, the verses walk on through digits 9-32. Every eight bars the phone dials the next eight digits before the band plays them. The 33rd digit, the first 0, empties the band for a bar while the line rings; then the hook returns, twice as long.",
+  "composed": "The piano riff and its voicing; the vowel tune over the hook; the organ bass, the organ and strings; drums, form, mix."
+ },
+ "point-nine": {
+  "style": "Hyperpop",
+  "exact": "1 − 0.99…9 (k nines) = 10<sup>−k</sup>",
+  "what": "A vowel cut into nines until it becomes a buzz, and a drop that does not wait for the last nine.",
+  "decides": "One vowel (A#5) is chopped: nine slices fill the first level, each next level's slice is a tenth as long. At beat size the chops (23 a second) become a buzz at 234 Hz (A#3), then a whine at 2340 Hz (D7); the fourth level would repeat 23 400 times a second, above hearing, so the drop takes its beat and lands one beat before the bar line. The same law runs at a sixteenth (a quick F#-A# fill), a beat (the risers, the band and a chord stuttering) and a bar (nine hits you can count, a 58.5 Hz growl, a 585 Hz whine cut a beat short). Five bars in the track are three beats long: every big landing comes a beat early.",
+  "composed": "The voice (a saw through three moving formants, vowels only); the two-bar hook and its answer, the verse, pre and bridge tunes; the chords (IV-V-iii-vi in F# major) and the F#-A#-D walk of the 808 under each riser; the 808 lines, the bouncy backbeat drums; the form and where each stutter enters."
+ },
+ "nine-times": {
+  "style": "Dhol four-on-the-floor",
+  "exact": "9 × k, k = 1 … 10:&ensp;tens + ones = 9",
+  "what": "The nine-times table: the tens climb, the units fall, and they always add up to nine.",
+  "decides": "A man's voice plays the tens digit and climbs a ten-rung G major pentatonic ladder from the bottom; a woman's voice plays the ones digit and falls from the top. Because the digits add up to 9 they are always mirrored about the middle and pass each other between 45 and 54, where the whole band hits once. Ten swung eighths and a gap make two bars. The bridge reads the table backwards so they pass back.",
+  "composed": "The dhol and four-on-the-floor groove with a constant triplet swing; chords, harmonium, bass; the lute answers; the whole-step lift in the last hook; form and mix."
+ },
+ "heart-curve": {
+  "style": "Liquid drum and bass",
+  "exact": "(x<sup>2</sup> + y<sup>2</sup> − 1)<sup>3</sup> = x<sup>2</sup>y<sup>3</sup>",
+  "what": "The heart curve, drawn by a chopped voice around your head.",
+  "decides": "A chopped voice draws the heart around the listener's head, one heart every two bars, walked at even speed from the point: up the left side and over the left lobe (left ear, the rising call), through the notch at the bar line (centre), over the right lobe and down the right side (right ear, the falling answer), back into the point - the lowest note, on beat one, where the sub bass and the kick land. After the breakdown the same voice draws one heart slowly over eight bars; its long fall dives into the second drop, which lands on the point.",
+  "composed": "The hook's notes and rhythm along the contour, the chords (Fm9 Dbmaj7 Ab Eb); liquid drum and bass: two-step drums, sub and soft reese, pads, electric piano, bell answer, bright pluck under the voice; filter moves, form and mix."
+ },
+ "432": {
+  "style": "Filtered disco house",
+  "exact": "sin(2π·440t) + sin(2π·432t) = 2 cos(2π·4t) sin(2π·436t)",
+  "what": "Two tones 8 Hz apart beat 8 times a second: at 120 BPM that is every sixteenth.",
+  "decides": "Every beating voice is a sound plus copies shifted down in frequency by the difference, so all its partials beat together. Two copies: the 440/432 tone and the pumping chords. A comb of eight copies 8 Hz apart: the hi-hat tick. The difference is 8 Hz (sixteenths) except in the half-time part, 2 Hz (438, quarters) and then 4 Hz (436, eighths) on the way back.",
+  "composed": "The A - Em7 - G - D loop and the break's F#m7 - Dmaj7 - Bm7 - Esus4; the octave bass; the vowel lead, its hook and the two slow tunes; the counter plucks; drums, form, mix."
+ },
+ "fibonacci": {
+  "style": "Big beat",
+  "exact": "F(n) mod 12, n = 0 … 23",
+  "what": "The Fibonacci numbers, mod 12: twelve drum pads pressed 24 times, then back to the start.",
+  "decides": "A drum machine with twelve pads numbered 0 to 11. F(n) mod 12 picks the pad: 24 presses, three to a beat with the fourth sixteenth open, so one turn is exactly two bars. Every third Fibonacci number is even, so the beats only land on even pads: the kick (0) opens both bars because F(12) = 144, the snare (2) and the clap (10) swap the backbeats, the boom (8) and the stomp (4) share the threes, and the odd pads fall in between. 6 never comes up, so pad 6 (a shaker) only fills the open sixteenths. The break is heard alone at 0 s and runs under the whole track at one speed. Before the last part the snare rolls 1, 1, 2, 3, 5, 8, 13 hits per beat.",
+  "composed": "The sound of each of the twelve pads, three presses then a gap, the swing, the bass riff and its rests, the organ answer, the middle part's melody and chords, the form and the mix."
+ },
+ "divide-zero": {
+  "style": "Half-time 808",
+  "exact": "y = 1/x, x → 0",
+  "what": "One divided by zero: x runs to 0 in 1/x, and there is no answer.",
+  "decides": "RUSH - ZERO - DIVE - LAND. x runs in a straight line from 1 to 0: the lead's frequency is f0/x (an octave per halving of x) and the hat spacing is proportional to x (the rate doubles per halving, the roll turns into a tone). At x = 0 the whole mix drops 50 dB for exactly one beat. On the next beat the 808 returns from the other side: f = f_root * (-1/x), x from -1/16 to -1, a fall of four octaves onto the root. The verse and build stretch one approach over twenty bars (hat rate doubles at bars 10, 15, 17.5, then continuous). The bridge comes from the minus side: the chord sinks one octave per halving of |x|.",
+  "composed": "The glide lead's tune; the flute line in the verse; the bridge tune and choir; the 808 line; the F#m-D-Bm-C# loop; drums, form, mix."
+ },
+ "6174": {
+  "style": "Breakbeat",
+  "exact": "7641 − 1467 = 6174",
+  "what": "Kaprekar's routine: every four-digit number ends at 6174.",
+  "decides": "A four-note figure plays the bar's number, digit d the d-th step of C# natural minor (0 a rest), always in the same composed rhythm; each bar is one step of the routine. The journeys fill whole phrases: 7641 in one step, 3524 and 1057 in three (a four-bar phrase each), 9831 in seven (eight bars), 2111 in five (then 6174 holds). Every landing on 6174 is a bar head, and 6174 is the hook.",
+  "composed": "The figure's rhythm; the starting numbers and their order; the chords under each number; the hook lead; bass, breakbeat, form, mix."
+ },
+ "pythagoras": {
+  "style": "Four-on-the-floor stabs",
+  "exact": "a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>:&ensp;(3, 4, 5), (5, 12, 13), (7, 24, 25), (8, 15, 17)",
+  "what": "Four right triangles, played as four chords that are driven hard.",
+  "decides": "Each triangle is a chord whose voices are integer multiples of one fundamental (the sides, moved by octaves). Driven hard, every product of the voices is again a multiple of that fundamental: 3:4:5 rings as one clean tone over Eb, the other three rattle at their 16-29 Hz fundamental. Each time 3:4:5 comes back it starts out of tune and slides into the ratios: the churning chord locks and stands still (the lock, 19 times).",
+  "composed": "The stab rhythm; the out-of-tune starting points and speeds of each lock; the chord order (home, 5:12:13, 7:24:25, 8:15:17 over Eb Ab C Bb); the bass line; the melody; drums, form, mix."
+ },
+ "repunit": {
+  "style": "Big room",
+  "exact": "111111111<sup>2</sup> = 12345678987654321",
+  "what": "Nine ones squared: a palindrome up the scale and back.",
+  "decides": "Digits are steps of C minor (1 = C4, 9 = D5). The intro and build climb the ladder 1, 121, 12321 ... one rung every two bars, each phrase starting on the bar line. The drop is the ninth rung in two bars: a run up, the top held, the walk down. In the second half of the last drop the tenth rung breaks it: the 8 is missing on the way up and the two 0s are two eighths where the whole track stops.",
+  "composed": "The hook rhythm (sixteenths up, held top, eighths down); the chords (Cm9 Fm9 Bb Ab6); the piano break; the bass; drums, sounds, form, mix."
+ },
+ "thirds": {
+  "style": "Afro house",
+  "exact": "1/3 + 1/3 + 1/3 = 1",
+  "what": "Three thirds make one whole.",
+  "decides": "Every beat is cut into three and three mallet voices each own one third (first, middle, last), each holding one note of the chord. Alone each is a pulse with holes, two together limp, all three are a gapless pulse: one whole, and the whole chord rolling. Intro: 1/3, 2/3, 3/3 one bar at a time; the hooks are all three; the verse leaves the last third to a shadow of organ; the break removes them one by one and the last bars put them back. The outro ends with all three on one beat.",
+  "composed": "The flute tune; chords G#m-E-B-F# (Abm-Fb-Cb-Gb) and the verse chords; bass pushes, kick and claps; form, mix."
+ },
+ "sieve": {
+  "style": "Minimal techno",
+  "exact": "The sieve of Eratosthenes on 2 … 97",
+  "what": "The sieve of Eratosthenes played on a grid of sixteenths.",
+  "decides": "The hat plays the numbers still standing. Each section crosses out the multiples of the next prime and they change instrument: multiples of 2 become the kick (on the beat) and the bass (off the beat), odd multiples of 3 the chord stab (every six sixteenths), those of 5 a bell, those of 7 a clang. After 7 only the 25 primes are left on the hat. In the break the chords speak only on the primes; the outro undoes the sieve one prime a bar.",
+  "composed": "The acid bass line and its filter; the D minor chords (Dm9 Bbmaj9 Gm9 Am7); the lead; the bell's six notes; the form, sounds and mix."
+ },
+ "circle-31": {
+  "style": "Electro pop",
+  "exact": "C(n, 4) + C(n, 2) + 1 = 1, 2, 4, 8, 16, 31",
+  "what": "Regions of a circle cut by the chords between n points: it looks like doubling, then 31 instead of 32.",
+  "decides": "The count synth plays that many hits in a bar, evenly spaced and panned to the angles of the points on a circle. The intro and each four-bar loop of the drops double 1, 2, 4, 8; the build runs 1, 2, 4, 8, 16, 31 with the snare, where the last bar is 32 thirty-second slots with slot 32 empty. The whole mix is silent in that slot and the last drop starts from it.",
+  "composed": "The E - C#m7 - A - B loop and the verse chords; the octave bass; the lead and the whistle tune; the arp; four-on-the-floor drums; form and mix."
+ },
+ "neg-neg": {
+  "style": "Half-time bass music",
+  "exact": "(−1)<sup>2</sup> = 1",
+  "what": "Minus times minus is plus: reflect the harmony once and it turns bright, twice and it is home.",
+  "decides": "Every chord and melody note of the dark B phrygian loop (Bm C Am C Bm C D C) is reflected in the B-F# axis: the verse is that mirror, a bright loop (B A#m C# A#m B A#m G#m A#m) with the melody upside down, over four-on-the-floor. The hook is the mirror of the mirror, which is the original: dark, half-time, a growling bass. The intro is phrase, mirror, phrase, mirror, one bar each; the bridge flips every two bars.",
+  "composed": "The original loop and melody; the growl and pluck bass; both drum worlds; the sounds; form and mix."
+ },
+ "golden": {
+  "style": "Yodel and banjo",
+  "exact": "φ = (1 + √5) / 2 = 1.6180339887…",
+  "what": "The golden ratio phi.",
+  "decides": "A yodel: the chest voice plays the fifth of the chord, the head voice flips up to exactly phi times that frequency (833.09 cents, between a minor and a major sixth), which lands on a blue third 333 cents above the root. The sections end on bars 6, 16, 26, 42, 68 (twice 3, 8, 13, 21, 34; each the sum of the two before) and the top of the track starts on bar 42 of 68, 0.618 of the way through.",
+  "composed": "The hook and the chest notes of the yodel; the fiddle answers; the banjo rolls and voicings; the chords; bass, stomps, claps; form inside the sections, mix."
+ },
+ "clock": {
+  "style": "Disco funk",
+  "exact": "(9 + 4) mod 12 = 1",
+  "what": "Clock arithmetic: nine o'clock and four hours is one o'clock.",
+  "decides": "An hour is a pitch class (12 o'clock = C): the horns' hook is 9 to 1, A up to C#. Each hook after the first moves the track up four semitones, B, Eb, G, and the third move is B again. The horns keep climbing (the last hook an octave above the first); the band wraps round the dial and comes home. A tick and a tock on the eighths.",
+  "composed": "The horn line; the chords (B9 E9 F#9; verse C#m7 F#9 E9); the clav riff; the guitar; the disco bass; drums, strings, form, mix."
+ },
+ "googol": {
+  "style": "Trance",
+  "exact": "1, 10, 100, …, 10<sup>14</sup>, then 10<sup>100</sup>",
+  "what": "A googol: a 1 and a hundred zeros.",
+  "decides": "The powers of ten written one after another, one digit per sixteenth: each 1 is a kick, each 0 a hat or a note of the rolling bass. The intro loops 1 10 100 1000, ten steps drifting over the bar; the drops are 1000 repeated (four on the floor, bass on the zeros); the stretch runs 10^0 to 10^14 so the gaps between kicks grow by one sixteenth each time; the last sixteenth of the stretch is the 1 of 10^100 and the break is its hundred zeros, a hundred sixteenths with only a pad. The same ten-step loop sets the accents of the arpeggio.",
+  "composed": "The chords Bm-G-D-A; the melody and the verse tune; arpeggio notes, bass pitches, form, mix; the countdown 10^6 to 1 at the end of drop3."
+ },
+ "binary": {
+  "style": "Square waves",
+  "exact": "0, 1, 10, 11, 100, 101, 110, 111",
+  "what": "Counting in binary, one digit a voice.",
+  "decides": "The ones digit flips every beat, the twos every two, the fours every four, so the chord fills in over two bars from nothing (000) to all three notes (111) and falls back to nothing on the next downbeat, where only kick and bass are left. The eights digit (the bass) comes on at the first drop (1000), the sixteens (the tune) at the second, the thirty-twos (an arpeggio) at the last; before it the counter speeds up to two, then four counts a beat. In the drops the digits that are on are struck in sixteenths.",
+  "composed": "The pitches of the voices and the chords Ebm Cb Gb Db; the tune and its variant; the verse's triangle line; the sixteenth accent pattern in the drops; drums; form and mix."
+ },
+ "e-digits": {
+  "style": "Swing, four-on-the-floor",
+  "exact": "e = Σ 1/k! = 2.718281828 459045…",
+  "what": "e, whose decimals repeat 1828 twice before they stop repeating.",
+  "decides": "The bass riff is the digits: 1 8 2 8 1 8 2 8 as eight swung eighths, digit d the d-th step of A natural minor counted from the chord's root (8 the octave), the 7 a pickup sixteenth. The track opens on 2 and 7. In the bridge the loop breaks where e breaks, and the bass walks the next 32 decimals (4 5 9 0 4 5 2 3 ...) counted from A, 0 a rest, until the loop comes back.",
+  "composed": "The horn hook and its harmony; the verse tune and the bridge trumpet; the chords (Am Dm E7, the bridge chords picked under the walked digits); piano chop, drums, the old-record intro, form, mix."
+ },
+ "pascal": {
+  "style": "Choir and rolling bass",
+  "exact": "11<sup>k</sup>, k = 0 … 4:&ensp;1, 11, 121, 1331, 14641",
+  "what": "The powers of 11 are the rows of Pascal's triangle.",
+  "decides": "Every row is a choir chord: as many voices as digits, each as loud as its digit. On the four beats of a bar the choir plays rows 0 to 3 and on the next downbeat the full 14641, held under the kick: the hook grows by one voice a beat. In the break 11^5 = 161051 carries: six voices weighted 1 6 1 0 5 1, the third of the chord gets the 0 and the chord turns hollow. The last drop rebuilds the triangle twice as fast; the end walks back down to one voice.",
+  "composed": "The pitches of the voices and the chords Fm Db Bbm C; the square lead; the rolling bass; the drums; form and mix."
+ },
+ "1089": {
+  "style": "Jersey club",
+  "exact": "abc − cba = d,&ensp;d + rev(d) = 1089",
+  "what": "Reverse a three-digit number, subtract, reverse and add: always 1089; times nine it is itself backwards.",
+  "decides": "Digits are steps of G dorian (0 = G4 ... 9 = Bb5). Everything is played twice: struck forwards, and as the same struck note's audio turned round, so it swells out of its own reverb and cuts where the strike was; the cuts land on the kicks of the bounce. The hook strikes 1-0-8-9 and sucks in 9-8-0-1. A trick phrase strikes a number, sucks in its reverse, strikes the difference, sucks in its reverse, then lands on the hook (821, 741, 964). The section 9801 plays the whole recorded hook backwards over a mirrored kick pattern. The lead tone has partials 1, 8 and 9 only.",
+  "composed": "The rhythms of the hook and the motifs; the chords; the 808 line; the jersey club drums; the vowel chops; form and mix."
+ },
+ "float": {
+  "style": "Glitch hop",
+  "exact": "0.1 + 0.2 = 0.30000000000000004",
+  "what": "The rounding error of binary floating point.",
+  "decides": "The seventeen digits after the point are seventeen sixteenths: 3 a struck note, 0 a rest, 4 a glitch. Against bars of sixteen the pattern slips one sixteenth a turn, so the glitch walks through the beat and comes back to a downbeat every seventeen bars. The break plays only zeros and stops the pattern's clock, which brings the glitch home on the first beat of the outro. The last sound is a 3 with no 4.",
+  "composed": "Glitch hop drums; wobble bass; chords; the lead and the vowel line."
+ },
+ "circle": {
+  "style": "Drum circle",
+  "exact": "(x, y) = (cos θ, sin θ)",
+  "what": "A point going round the unit circle.",
+  "decides": "Eight drummers sit on a circle round the listener's head, 45 degrees apart; the surdo, the kick and the bass stand at its centre and never turn. A point goes round the circle from the right ear once every two bars and never stops: the drummer it passes comes forward (louder, brighter, drier) and the one opposite goes back. The seats are evenly spaced, so the powers always add up to the same total (cos^2 + sin^2 = 1). The whistle and the off-beat hat are the point itself. The chords change where the circle meets the axes (every two beats); the bass filter follows x and the cuica's vowel follows y. In the last part the point goes round twice as fast.",
+  "composed": "The cuica hook and its variants; the middle tune; the chords and their voicings; the bass lines; the drum patterns, the stop and the calls; the form (the circle filling one seat-pair at a time)."
+ },
+ "369": {
+  "style": "Jaw harp, hard kick",
+  "exact": "Digital root of 2<sup>k</sup>:&ensp;1, 2, 4, 8, 7, 5, 1, … (never 3, 6, 9)",
+  "what": "Three, six, nine: the doubling loop on a jaw harp, the missing numbers as stabs.",
+  "decides": "Doubling a frequency is an octave, so the loop is played as harmonics of one drone. A jaw harp twangs harmonics 1, 2, 4, 8, 7, 5 of its drone once per bar - three octave leaps up, then the bluesy 7th and the bright 5th - and never 3, 6 or 9. On the 3rd, 6th and 9th sixteenth of every bar the horns and voices hit harmonics 3, 6 and 9 of the root, climbing; the two make one interlocking riff. The middle part slows the loop to a bugle call (one note a beat or more).",
+  "composed": "The riff's rhythm and its fills, the hard four-on-the-floor kick, off-beat bass, claps, toms, taiko; the roots (D; Bb and C in the middle), the low voices and the D major of harmonics 4 5 6 at the top; form and mix."
+ },
+ "one-89": {
+  "style": "Night-forest trance",
+  "exact": "1/89 = Σ F<sub>k</sub> / 10<sup>k+1</sup> = 0.011235955…",
+  "what": "One over eighty-nine: the Fibonacci numbers, each one place further right.",
+  "decides": "Every lead note is followed by echoes one sixteenth apart, alternately left and right, the k-th with strength F_k * x^k. At x = 1/10 these are the digits of 1/89 and the lead is almost dry. Each hook phrase pushes x past 1/phi (0.618), where the series diverges: the echoes grow instead of dying, swell into a cloud, and the next downbeat pops it (the delay line is cleared). The breakdown sits just under the edge (a fog); the track ends on the edge itself, x = 1/phi, where the echoes hold for ever.",
+  "composed": "The lead tune (one head, three tails, a four-bar turn); the path of x through each phrase and section; harmony (Am, F, G, Em); the rolling bass; drums; form; mix."
+ },
+ "pi-equals-4": {
+  "style": "Lo-fi hip hop",
+  "exact": "Stairs around a circle of diameter 1: length 4 at every step size. The circle: π",
+  "what": "The staircase proof: however fine the steps around a circle, their length stays 4.",
+  "decides": "The lead's pitch follows a half circle drawn over each bar and climbs it as a staircase sampled at the corners. The stairs refine through the track, 4, 8, 16, 32 steps a bar, and the pitch grid with them (pentatonic, diatonic, chromatic), but every phrase lasts exactly 4 beats. In the truth section the real circle plays: one unbroken glide per phrase, pi beats long, five of them in four bars, so each arrives 0.86 of a beat earlier than the bar while the stairs keep their 4 beats underneath.",
+  "composed": "Where each bar's circle starts, ends and how high it bulges; the gate rhythm of the stair voice; the Rhodes chords (Bmaj9 A#m7 G#m9 C#7); the vibraphone tune; bass, drums, form, mix."
+ },
+ "minus-twelfth": {
+  "style": "Eurobeat",
+  "exact": "1 + 2 + 3 + 4 + … = −1/12&ensp;(ζ(−1) = −1/12)",
+  "what": "The sum of all counting numbers, famously assigned -1/12.",
+  "decides": "In the build, bar k of the snare has T(k) strokes spread evenly over the bar from its downbeat. Then, in the last two beats of the build, the drums stop and the whole band, held on one chord, sinks like a slowing tape by exactly 2^(-1/12); the drop lands a semitone lower, in D-flat major, and the track stays there to the end. The horn's phrase ends fall off by the same -100 cents all through the track, from the first riff at 0 s.",
+  "composed": "The horn riff, the verse, the pre-chorus and the chorus; the chords; the octave bass; the drums; the form; the shape of the sink (two beats, a slowing reel) and of the fall-offs; the horn and bass sounds; the mix."
+ },
+ "sqrt2": {
+  "style": "80s synths",
+  "exact": "√2 = 1.41421356…",
+  "what": "The square root of two, which is the tritone.",
+  "decides": "The hook's leap: C5 times sqrt(2) is F#5, times sqrt(2) again is C6. The hook's two chords are C and F#, the same distance apart; the bass falls from C2 to F#1 (divided by sqrt(2)) while the lead climbs. The intro states it at 0 s with two gated snare hits; the outro runs it backwards.",
+  "composed": "Every other note of the tunes; the solo; the synth chords and arpeggio; the bass rhythm; the drums and the gated room; the form."
+ },
+ "imaginary": {
+  "style": "Dark pop",
+  "exact": "i<sup>2</sup> = −1;&ensp;i<sup>k</sup>: 1, i, −1, −i, 1, …",
+  "what": "Multiplying by i is a quarter turn; twice is -1.",
+  "decides": "The lead stands at z = i^k in bar k: front, right, behind, left, front. Behind (i^2 = -1) the -1 goes into the side signal only: L = M + S, R = M - S with S the lead turned a quarter cycle, so it sits around the back of the head while the mono sum keeps the lead. A counter choir in the hooks turns the other way (times -i).",
+  "composed": "The melodies; chords; 808; trap drums; the counter-rotation of the choir."
+ },
+ "factorial": {
+  "style": "UK funky",
+  "exact": "0! = 1;&ensp;n notes have n! orders",
+  "what": "Nothing can be put in order in exactly one way.",
+  "decides": "One bar of kick alone (0! = 1), one note (1!), two notes both ways (2 bars), three notes all six ways (6 bars), four notes all 24 ways (24 bars). The orders follow Steinhaus-Johnson-Trotter: each bar swaps two neighbouring notes of the last, and the last order is one swap from the first, so in the second pass (a new sound) the motif runs on round the loop into the start. The break plays the four notes at once: the set with no order.",
+  "composed": "The four notes (A C E F#) and their rhythm; the chords (Am9 D9); the bass; the counter line; drums; form, mix."
+ },
+ "magic-square": {
+  "style": "Pizzicato waltz",
+  "exact": "4 9 2 / 3 5 7 / 8 1 6:&ensp;every line adds to 15",
+  "what": "The 3x3 magic square: every row, column and diagonal adds to 15.",
+  "decides": "Each number is a step of the Db major ladder (1 = Db4 ... 9 = Eb5) and each of the eight lines is a three-note chord voiced exactly as its numbers stand, one chord to a bar. Intro: the rows; verses: the columns; hook: the diagonals, then all eight lines one bar each. The centre 5 (Ab) is held through the whole track as a pedal, because it is the only cell on four lines.",
+  "composed": "The pizzicato waltz rhythm of the hook; the cello root under each line and its answers; the violin tune and the flute doubling; brushes, soft kick, form, mix."
+ },
+ "countdown": {
+  "style": "Hard four-on-the-floor",
+  "exact": "10 + 9 + 8 + … + 1 = 55 bars",
+  "what": "A countdown, as the lengths of the parts.",
+  "decides": "Every part opens on a stab and a new chord, so the chords change after 10 bars, then 9, 8 ... 3, 2, 1: the harmony speeds up while the tempo stays. Seven of the ten counts begin off the four-bar grid. Count 1 is one held bar; 0 is the drop.",
+  "composed": "The chords of each count and of the drop; the riffs and the tune of the drop; the kick and off-beat bass; what each count brings in; form of the drop and mix."
+ },
+ "squares-ns": {
+  "style": "Digital cumbia",
+  "exact": "n<sup>2</sup> = 1, 4, 9, 16, 25:&ensp;gaps 3, 5, 7, 9",
+  "what": "The square numbers: the gaps are the odd numbers.",
+  "decides": "The deep drum (the frog) strikes on the 1st, 4th, 9th, 16th and 25th sixteenth of every two bars - gaps 3, 5, 7, 9, a bouncing ball run backwards - sounding the chord's root, fifth and octave, the 16th sixteenth already in the next chord. The synth tune's strong notes strike with it on 0, 3, 8 and 15. In the breakdown the ball goes up and back down over four bars; at the end it is played forwards and comes to rest.",
+  "composed": "The chords (Am G F E7; breakdown Dm Am F E7), the walking-down sub, the synth tune and its slow version, the cumbia drums, form and mix."
+ },
+ "euler-identity": {
+  "style": "Cinematic",
+  "exact": "e<sup>iπ</sup> + 1 = 0",
+  "what": "Euler's identity: 1, e, i and pi come in one by one, and the end cancels itself to zero.",
+  "decides": "1 is the heartbeat from the first sample. e is a pad that pulses at a rate growing as e^t, once a bar to sixteen times a bar, and swells with it. i is an arpeggio that moves a quarter turn around the listener every beat (i^4 = 1: one turn a bar). pi swings the chord section's filter through half a circle every beat. At “= 0” the theme and its chords keep playing while a copy of them is rotated by e^(i theta), theta from 0 to pi, through the analytic signal; at pi the copy is exactly minus the theme and the sum is silent. The last pi seconds are that silence, with the theme still playing underneath it.",
+  "composed": "The C major chords; the theme; the drums beyond the heartbeat; form and mix."
  }
 }

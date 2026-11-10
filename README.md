@@ -30,7 +30,7 @@ prod.  Naru Kijima
 
 ## What isn't here
 
-The audio, the score files and the code that makes the sound. The albums are registered with audio matching systems such as Content ID, which require exclusive rights, so anything that could regenerate the sound stays private. The scores of the first album are free to read and download on [the site](https://xarcsiny.com/scores/).
+The audio, the score files and the code that makes the sound. The albums are registered with audio matching systems such as Content ID, which require exclusive rights, so anything that could regenerate the sound stays private. The scores of the first album are free to read and download on [the site](https://xarcsiny.com/scores/), and every track of all three albums plays there.
 
 That also means this repository can't build the site by itself: `tools/` reads those private inputs from a local file (`tools/paths.py`).
 

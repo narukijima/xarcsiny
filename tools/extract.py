@@ -5,10 +5,15 @@ Inputs are read-only and private: album masters, the frozen events of each relea
 Output goes to the private build folder, never to this repository: {audio,data,scores}.
 A small public index stays here: data/tracks.json.
 
+The first album has frozen events, so it gets scores. The later albums are built voice by voice in code with no such list:
+they get audio and loudness curves only (--albums; their inputs are the "albums" list of the sources file).
+
 usage: extract.py [--only SLUG,...] [--no-audio] [--jobs N]
+       extract.py --albums [--no-audio] [--jobs N]
 """
 import argparse
 import base64
+import hashlib
 from concurrent.futures import ProcessPoolExecutor
 from fractions import Fraction as F
 import json
@@ -257,12 +262,74 @@ def one_track(args):
             "spark": curves["spark"], "bars": score.n_bars, "parts": [p.name for p in score.parts], "notes": n_notes, "lines": len(lines), "lag_ms": lag}
 
 
+def later_albums():
+    """Jobs for the albums without events: positions, titles as delivered, the masters (checked against the sheet's hashes)."""
+    taken = {r["slug"] for r in json.loads(INDEX.read_text()) if r.get("album", "f-t") == "f-t"}
+    content = {a["slug"]: a for a in (json.loads(f.read_text()) for f in sorted((SITE / "content").glob("album-*.json")))}
+    jobs = []
+    for album in setting("albums"):
+        sheet = json.loads(Path(album["sheet"]).expanduser().read_text())
+        titles = {}
+        for line in Path(album["titles"]).expanduser().read_text().splitlines():
+            m = re.match(r"\|\s*(\d+)\s*\|\s*`((?:\\.|[^`\\])+)`", line)
+            if m:
+                titles.setdefault(int(m.group(1)), m.group(2).replace("\\|", "|"))
+        if len(sheet["tracks"]) != 35 or sorted(titles) != list(range(1, 36)):
+            raise SystemExit(f"{album['slug']}: expected 35 tracks and 35 titles")
+        for t in sheet["tracks"]:
+            track_id = t["track_id"]
+            slug = album["slugs"].get(track_id) or re.sub(r"^[a-z]+\d*-(\d+-)?", "", track_id)
+            if slug in taken:
+                raise SystemExit(f"{album['slug']} {t['position']}: the slug {slug} is taken; name another in the sources file")
+            taken.add(slug)
+            wav = Path(album["masters"]).expanduser() / t["distribution_file"]["file"]
+            if hashlib.sha256(wav.read_bytes()).hexdigest() != t["distribution_file"]["sha256"]:
+                raise SystemExit(f"{album['slug']} {t['position']}: the master is not the delivered file")
+            record = json.loads((RECORDS / track_id / "track.json").read_text())
+            jobs.append({"album": album["slug"], "album_title": content[album["slug"]]["title"], "n": t["position"], "slug": slug, "title": titles[t["position"]], "wav": str(wav),
+                         "reading": t.get("reading"), "bpm": t.get("bpm"), "key": t.get("key"), "meter": record.get("meter"), "hook": float(t.get("preview_start_s") or 0)})
+    return jobs
+
+
+def one_later(job, skip_audio=False):
+    curves = loudness_curves(job["wav"])
+    curves.pop("mono"), curves.pop("sr")
+    slug = job["slug"]
+    data = {"slug": slug, "fps": FPS, "duration": round(curves["duration"], 3), "wave": curves["wave"], "env": curves["env"], "bass": curves["bass"], "lines": []}
+    (OUT / "data").mkdir(parents=True, exist_ok=True)
+    (OUT / "data" / f"{slug}.json").write_text(json.dumps(data, separators=(",", ":")), encoding="utf-8")
+    mp3 = OUT / "audio" / f"{slug}.mp3"
+    if not skip_audio and not mp3.exists():
+        mp3.parent.mkdir(parents=True, exist_ok=True)
+        subprocess.run([FFMPEG, "-v", "error", "-y", "-i", job["wav"], "-ac", "2", "-ar", "44100", "-c:a", "libmp3lame", "-b:a", f"{MP3_KBPS}k", "-id3v2_version", "3",
+                        "-metadata", f"title={job['title']}", "-metadata", "artist=x=arcsin y", "-metadata", f"album={job['album_title']}", "-metadata", f"track={job['n']}/35", str(mp3)], check=True)
+    return {"n": job["n"], "album": job["album"], "slug": slug, "title": job["title"], "reading": job["reading"], "bpm": job["bpm"], "key": job["key"], "meter": job["meter"],
+            "duration": round(curves["duration"], 2), "hook": round(job["hook"], 2), "spark": curves["spark"]}
+
+
+def one_later_quiet(job):
+    return one_later(job, True)
+
+
+def main_later(a):
+    jobs = later_albums()
+    with ProcessPoolExecutor(a.jobs) as ex:
+        rows = list(ex.map(one_later_quiet if a.no_audio else one_later, jobs))
+    first = [r for r in json.loads(INDEX.read_text()) if r.get("album", "f-t") == "f-t"]
+    INDEX.write_text(json.dumps(first + rows, ensure_ascii=False, indent=1), encoding="utf-8")
+    for r in rows:
+        print(r["album"], r["n"], r["slug"], r["title"], r["duration"])
+
+
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--albums", action="store_true")
     ap.add_argument("--only", default="")
     ap.add_argument("--no-audio", action="store_true")
     ap.add_argument("--jobs", type=int, default=10)
     a = ap.parse_args()
+    if a.albums:
+        return main_later(a)
     order = album_order()
     if len(order) != 35:
         raise SystemExit(f"expected 35 rows in the sheet, got {len(order)}")
@@ -271,9 +338,11 @@ def main():
     with ProcessPoolExecutor(a.jobs) as ex:
         rows = list(ex.map(one_track, jobs))
     if only and INDEX.exists():
-        keep = {r["slug"]: r for r in json.loads(INDEX.read_text())}
+        keep = {r["slug"]: r for r in json.loads(INDEX.read_text()) if r.get("album", "f-t") == "f-t"}
         keep.update({r["slug"]: r for r in rows})
         rows = sorted(keep.values(), key=lambda r: r["n"])
+    if INDEX.exists():  # the later albums stay in the index
+        rows += [r for r in json.loads(INDEX.read_text()) if r.get("album", "f-t") != "f-t"]
     INDEX.parent.mkdir(parents=True, exist_ok=True)
     INDEX.write_text(json.dumps(rows, ensure_ascii=False, indent=1), encoding="utf-8")
     for r in rows:
