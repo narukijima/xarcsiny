@@ -17,7 +17,7 @@ import sys
 ALLOWED = re.compile(r"""^(
     README\.md | LICENSE | \.gitignore | worker\.js | wrangler\.jsonc
   | src/(app\.js | site\.css | _headers | fonts/inter\.woff2 | fonts/OFL\.txt)
-  | content/(album-delta | pages | tracks)\.json
+  | content/(album-delta | album-champernowne | pages | tracks)\.json
   | data/(stores | tracks)\.json
   | tools/(build | deploy | extract | figures | paths | pdf | score_xml | stores)\.py
   | scripts/(check_public | test_check_public)\.py

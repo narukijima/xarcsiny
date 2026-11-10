@@ -208,6 +208,8 @@ body.has-player .scope { bottom: var(--bar-h); }
 /* Albums */
 .albums { display: grid; gap: var(--section); padding: 0 var(--gutter) var(--section); }
 .album-long h2, .album-long h1 { font-size: clamp(48px, 9vw, 128px); }
+.album-xlong h2, .album-xlong h1 { font-size: clamp(30px, 4.9vw, 76px); letter-spacing: -.02em; }
+.albums-home { padding-inline: 0; padding-bottom: 0; }
 .rows-text { list-style: none; margin: 0; padding: 0 var(--gutter); display: grid; }
 .rows-text li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: var(--gap); align-items: baseline; padding-block: calc(var(--u) * 1.5); border-top: 1px solid var(--line, #e6e6e6); }
 .rows-text p { margin-top: 4px; color: var(--ink-2); max-width: 44em; }
@@ -273,6 +275,7 @@ body.has-player .scope { bottom: var(--bar-h); }
   .nav { gap: 12px; font-size: 14px; }
   .wordmark { font-size: 17px; }
   .album-split { grid-template-columns: 1fr; }
+  .album-xlong h2, .album-xlong h1 { font-size: 8.4vw; }
   .plots { grid-template-columns: repeat(4, 1fr); }
   .plots .cap { display: none; }
   .player { grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: 60px 44px; gap: 0 12px; }

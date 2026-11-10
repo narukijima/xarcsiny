@@ -23,7 +23,7 @@ DIST = source("dist")
 ORIGIN = "https://xarcsiny.com"
 TRACKS = json.loads((SITE / "data/tracks.json").read_text())
 COPY = json.loads((SITE / "content/tracks.json").read_text())
-SECOND = json.loads((SITE / "content/album-delta.json").read_text())
+LISTED = [json.loads((SITE / f"content/{name}.json").read_text()) for name in ("album-delta", "album-champernowne")]  # out in stores; audio and scores not on this site yet
 STORES = json.loads((SITE / "data/stores.json").read_text())
 RELEASED = "2026-10-16"
 SOCIAL = [("YouTube", "https://www.youtube.com/@xarcsiny"), ("TikTok", "https://www.tiktok.com/@xarcsiny"), ("Instagram", "https://www.instagram.com/xarcsiny/")]
@@ -38,20 +38,20 @@ T = dict(
         lib="Library", albums="Albums", scores="Scores", about="About", about_nav="About", tagline="Every equation has a sound.",
         tap="Or tap one as it falls.", play_random="Play an equation", open_track="About this track", read_score="Read the score", play="Play", listen="Listen to the album", first_album="The first album.",
         album_lede=f"35 equations, {int(TOTAL_S // 60)} minutes. Every sound in it is calculated: no recordings, no samples.",
-        plots="35 tracks, 35 plots", plots_more="Open the library", excerpt_t="The scores are public", excerpt_p="All 35 scores are here to read, in real notation, moving with the sound.", all_scores="All scores",
+        plots="35 tracks, 35 plots", plots_more="Open the library", excerpt_t="The scores are public", excerpt_p="All 35 scores of f(t) are here to read, in real notation, moving with the sound.", all_scores="All scores",
         how_t="How it sounds like this", how=[("One equation", "Each track picks one equation and hands it the part you remember: a bass line, a rhythm, the way an echo falls."),
                                          ("Calculated, all of it", "AI composes the track and writes the code. The code computes every sample, including the voices and the accordion."),
-                                         ("A person listens", "Naru Kijima listens and decides what stays. All 35 tracks here survived that.")], more_about="More about how it works",
+                                         ("A person listens", "Naru Kijima listens and decides what stays. Every track here survived that.")], more_about="More about how it works",
         lib_lede="Search by equation, sound or genre. Tap a plot to hear it.", search="Search equations, genres", sort_album="Album order", sort_title="A–Z", sort_slow="Slowest", sort_fast="Fastest", sort_short="Shortest",
         view_list="List", view_grid="Plots", nothing="No equation matches that.", tempo="Tempo", key="Key", meter="Meter", length="Length", genre="Genre", album="Album", label="Label", released="Released", tracks_w="Tracks", credits="Credits",
         decides="What the equation decides", composed="What was composed", equation="The equation", score_h="Score", read_full="Read the full score", prev="Previous", next="Next", track_of="track",
-        on_apple="Apple Music", all_stores="All stores", scores_lede="The notes of all 35 tracks, in standard notation. Press play and the page follows the sound.",
+        on_apple="Apple Music", all_stores="All stores", scores_lede="The notes of all 35 tracks of f(t), in standard notation. Press play and the page follows the sound.",
         score_note="This is the notation of what the code plays. Stereo copies and octave layers share one staff, empty staves are hidden, and timing is rounded to values you can read. Pitch bends, filter moves and the rest of what the equation does to the sound can't be written here. That part you have to hear.",
         follow="Follow the sound", dl_pdf="PDF", dl_xml="MusicXML", dl_mid="MIDI", silent="Rest", bars="bars", parts="parts", notes="notes", terms="Terms", privacy="Privacy", follow_h="Follow", site_h="Site",
-        albums_lede="Two so far, both out.", second_lede=f"35 equations, {SECOND['minutes']} minutes. Every sound in it is calculated: no recordings, no samples.", stores_all="Stores", release_date="Release date", album_about="f(t) means a sound as a function of time, the one thing all 35 tracks have in common. It opens on the plainest curve there is, y=sin(x), and closes on a problem nobody has solved, n→3n+1.",
+        albums_lede="Three so far, all out.", listed_lede="35 equations, {m} minutes. Every sound in it is calculated: no recordings, no samples.", also_out="Also out", all_albums="All albums", album_about="f(t) means a sound as a function of time, the one thing all 35 tracks have in common. It opens on the plainest curve there is, y=sin(x), and closes on a problem nobody has solved, n→3n+1.",
         about_title="About", not_found="This equation has no solution.", not_found_p="The page you asked for isn't here.", home="Back to the start",
-        now_loading="Loading", desc_home="x=arcsin y makes music from equations. Tap an equation to hear it, read every score, and see what the math decides.", desc_lib="All tracks by x=arcsin y: equations you can play, search and read.",
-        desc_albums="Albums by x=arcsin y.", desc_scores="Sheet music for every x=arcsin y track, in standard notation, moving with the sound.", desc_about="How x=arcsin y turns equations into music, and who is behind it.",
+        now_loading="Loading", desc_home="x=arcsin y makes music from equations. Tap an equation to hear it, read every score, and see what the math decides.", desc_lib="The 35 tracks of f(t) by x=arcsin y: equations you can play, search and read.",
+        desc_albums="Albums by x=arcsin y.", desc_scores="Sheet music for all 35 tracks of f(t) by x=arcsin y, in standard notation, moving with the sound.", desc_about="How x=arcsin y turns equations into music, and who is behind it.",
         score_title="Score", free_use="Free to read, study and play.", sheet_for="Sheet music", desc_score="Read the sheet music of {t} by x=arcsin y: {p} parts, {b} bars, moving with the sound.", play_score="Play along", terms_title="Terms", privacy_title="Privacy")
 
 
@@ -174,6 +174,10 @@ def home():
 </div>
 </section>
 <section class="section">
+<div class="section-head"><h2>{t['also_out']}</h2><a class="link" href="/albums/">{t['all_albums']}</a></div>
+<div class="albums albums-home">{"".join(listed_card(a) for a in reversed(LISTED))}</div>
+</section>
+<section class="section">
 <div class="section-head"><h2>{t['plots']}</h2><a class="link" href="/library/">{t['plots_more']}</a></div>
 <ul class="plots">{plots}</ul>
 </section>
@@ -187,7 +191,7 @@ def home():
 <ul class="how">{how}</ul>
 </section>"""
     ld = {"@context": "https://schema.org", "@type": "MusicGroup", "name": "x=arcsin y", "url": ORIGIN + "/", "genre": ["Electronic", "Dance"], "slogan": "Every equation has a sound.",
-          "sameAs": [h for _, h in SOCIAL] + [STORES["album"]["apple"], STORES["album"]["spotify"], GITHUB], "album": {"@type": "MusicAlbum", "name": "f(t)", "url": ORIGIN + "/albums/f-t/"}}
+          "sameAs": [h for _, h in SOCIAL] + [STORES["album"]["apple"], STORES["album"]["spotify"], GITHUB], "album": [{"@type": "MusicAlbum", "name": "f(t)", "url": ORIGIN + "/albums/f-t/"}] + [{"@type": "MusicAlbum", "name": a["title"], "url": f"{ORIGIN}/albums/{a['slug']}/"} for a in LISTED]}
     return shell("/", "x=arcsin y — " + tag, t["desc_home"], body, "home", ld)
 
 
@@ -213,15 +217,29 @@ def library():
     return shell("/library/", f"{t['lib']} — x=arcsin y", t["desc_lib"], body, "home", nav="lib")
 
 
+def store_links(a):
+    return f'''<p class="stores"><a class="link" href="{a['stores']['spotify']}" rel="noopener">Spotify</a><a class="link" href="{a['stores']['apple']}" rel="noopener">{T['on_apple']}</a><a class="link" href="{a['stores']['all']}" rel="noopener">{T['all_stores']}</a></p>'''
+
+
+def title_class(a):
+    """The album title is set very large: a long one gets a smaller step so it stays on one line."""
+    return "album-long" + (" album-xlong" if len(a["title"]) > 12 else "")
+
+
+def listed_card(a):
+    path = f"/albums/{a['slug']}/"
+    return f"""<div class="album-split {title_class(a)}"><a href="{path}"><img src="/assets/img/{a['image']}-1200.jpg" alt="{esc(a['title'])}" width="1200" height="1200" loading="lazy"></a>
+<div><p class="label">Album {a['number']} · {a['release_date']}</p><h2 class="eq"><a href="{path}">{esc(a['title'])}</a></h2><p class="lede">{T['listed_lede'].format(m=a['minutes'])}</p>
+{store_links(a)}</div></div>"""
+
+
 def albums():
     t = T
     body = f"""<div class="page-head"><h1>{t['albums']}</h1><p>{t['albums_lede']}</p></div>
 <div class="albums"><div class="album-split"><a href="/albums/f-t/"><img src="/assets/img/cover-f-t-r2-1200.jpg" alt="f(t)" width="1200" height="1200" loading="lazy"></a>
 <div><p class="label">Album 01 · {RELEASED}</p><h2 class="eq"><a href="/albums/f-t/">f(t)</a></h2><p class="lede">{t['album_lede']}</p>
 <p class="stores"><button class="button" data-play="{TRACKS[0]['slug']}">{ICON_PLAY}{ICON_PAUSE}{t['listen']}</button></p></div></div>
-<div class="album-split album-long"><a href="/albums/{SECOND['slug']}/"><img src="/assets/img/cover-{SECOND['slug']}-r2-1200.jpg" alt="{esc(SECOND['title'])}" width="1200" height="1200" loading="lazy"></a>
-<div><p class="label">Album 02 · {SECOND['release_date']}</p><h2 class="eq"><a href="/albums/{SECOND['slug']}/">{esc(SECOND['title'])}</a></h2><p class="lede">{t['second_lede']}</p>
-<p class="stores"><a class="link" href="{SECOND['stores']}" rel="noopener">{t['stores_all']}</a></p></div></div></div>"""
+{"".join(listed_card(a) for a in LISTED)}</div>"""
     return shell("/albums/", f"{t['albums']} — x=arcsin y", t["desc_albums"], body, "album-f-t", nav="albums")
 
 
@@ -242,24 +260,24 @@ def album():
     return shell("/albums/f-t/", f"f(t) — x=arcsin y", f"f(t), the first album by x=arcsin y. {t['album_lede']}", body, "album-f-t", ld, nav="albums")
 
 
-def second_album():
-    """Album 02 before its audio and scores are on this site: the list, the release date and DistroKid's page, which gains the store links when they go live."""
+def listed_album(a):
+    """An album that is out in stores, before its audio and scores are on this site: the list, the release date and the store links."""
     t = T
-    a = SECOND
+    lede = t["listed_lede"].format(m=a["minutes"])
     rows = "".join(f'<li><span class="row-n num">{r["n"]}</span><div><span class="row-title eq">{esc(r["title"])}</span><p>{esc(r["what"])}</p></div></li>' for r in a["tracks"])
-    meta = [(t["release_date"], a["release_date"]), (t["tracks_w"], str(len(a["tracks"]))), (t["length"], a["total"]), (t["label"], "y=sin(x)"), (t["genre"], "Electronic, Dance"), (t["credits"], "prod. Naru Kijima / AI")]
+    meta = [(t["released"], a["release_date"]), (t["tracks_w"], str(len(a["tracks"]))), (t["length"], a["total"]), (t["label"], "y=sin(x)"), (t["genre"], "Electronic, Dance"), (t["credits"], "prod. Naru Kijima / AI")]
     dl = "".join(f"<dt>{esc(x)}</dt><dd>{esc(y)}</dd>" for x, y in meta)
     path = f"/albums/{a['slug']}/"
-    image = f"/assets/img/cover-{a['slug']}-r2-1200.jpg"
-    body = f"""<div class="section" style="padding-top:clamp(32px,6vw,80px)"><div class="album-split album-long"><img src="{image}" alt="{esc(a['title'])}" width="1200" height="1200">
-<div><p class="label">Album 02 · x=arcsin y</p><h1 class="eq">{esc(a['title'])}</h1><p class="lede">{t['second_lede']}</p>
-<p class="stores"><a class="link" href="{a['stores']}" rel="noopener">{t['stores_all']}</a></p></div></div></div>
+    image = f"/assets/img/{a['image']}-1200.jpg"
+    body = f"""<div class="section" style="padding-top:clamp(32px,6vw,80px)"><div class="album-split {title_class(a)}"><img src="{image}" alt="{esc(a['title'])}" width="1200" height="1200">
+<div><p class="label">Album {a['number']} · x=arcsin y</p><h1 class="eq">{esc(a['title'])}</h1><p class="lede">{lede}</p>
+{store_links(a)}</div></div></div>
 <div class="album-meta"><p>{esc(a['about'])}</p><dl class="meta">{dl}</dl></div>
 <div style="height:calc(var(--u)*6)"></div>
 <ol class="rows-text">{rows}</ol><div style="height:var(--section)"></div>"""
     ld = {"@context": "https://schema.org", "@type": "MusicAlbum", "name": a["title"], "url": ORIGIN + path, "image": ORIGIN + image, "datePublished": a["release_date"], "numTracks": len(a["tracks"]),
           "byArtist": {"@type": "MusicGroup", "name": "x=arcsin y"}, "track": [{"@type": "MusicRecording", "name": r["title"], "position": r["n"]} for r in a["tracks"]]}
-    return shell(path, f"{a['title']} — x=arcsin y", f"{a['title']}, the second album by x=arcsin y. {t['second_lede']}", body, "album-" + a["slug"], ld, nav="albums")
+    return shell(path, f"{a['title']} — x=arcsin y", f"{a['title']}, the {a['ordinal']} album by x=arcsin y. {lede}", body, "album-" + a["slug"], ld, nav="albums")
 
 
 def track(r):
@@ -420,8 +438,9 @@ def main():
     cover = source("cover")
     for size in (1200, 600):
         Image.open(cover).convert("RGB").resize((size, size), Image.LANCZOS).save(DIST / f"assets/img/cover-f-t-r2-{size}.jpg", quality=88, optimize=True)
-    for size in (1200, 600):
-        Image.open(source("cover_delta")).convert("RGB").resize((size, size), Image.LANCZOS).save(DIST / f"assets/img/cover-{SECOND['slug']}-r2-{size}.jpg", quality=88, optimize=True)
+    for a in LISTED:
+        for size in (1200, 600):
+            Image.open(source(a["cover"])).convert("RGB").resize((size, size), Image.LANCZOS).save(DIST / f"assets/img/{a['image']}-{size}.jpg", quality=88, optimize=True)
     icon = Image.new("RGB", (360, 360), "white")
     font = ImageFont.truetype("/System/Library/Fonts/HelveticaNeue.ttc", 150, index=10)
     d = ImageDraw.Draw(icon)
@@ -434,7 +453,8 @@ def main():
     write("/library/", library())
     write("/albums/", albums())
     write("/albums/f-t/", album())
-    write(f"/albums/{SECOND['slug']}/", second_album())
+    for a in LISTED:
+        write(f"/albums/{a['slug']}/", listed_album(a))
     write("/scores/", scores_index())
     for name in ("about", "terms", "privacy"):
         write(f"/{name}/", prose_page(name))
@@ -446,9 +466,10 @@ def main():
         og_image(r["slug"], r["title"], r["spark"], "x=arcsin y · f(t)")
     og_image("home", "x=arcsin y", TRACKS[33]["spark"], "Every equation has a sound.")
     og_image("album-f-t", "f(t)", None, "x=arcsin y · 35 tracks")
-    og_image("album-" + SECOND["slug"], SECOND["title"], None, "x=arcsin y · 35 tracks")
+    for a in LISTED:
+        og_image("album-" + a["slug"], a["title"], None, "x=arcsin y · 35 tracks")
     og_image("scores", "x=arcsin y", None, "All 35 scores are public.")
-    paths = ["/", "/library/", "/albums/", "/albums/f-t/", f"/albums/{SECOND['slug']}/", "/scores/", "/about/", "/terms/", "/privacy/"] + [f"/tracks/{r['slug']}/" for r in TRACKS] + [f"/scores/{r['slug']}/" for r in TRACKS]
+    paths = ["/", "/library/", "/albums/", "/albums/f-t/", *(f"/albums/{a['slug']}/" for a in LISTED), "/scores/", "/about/", "/terms/", "/privacy/"] + [f"/tracks/{r['slug']}/" for r in TRACKS] + [f"/scores/{r['slug']}/" for r in TRACKS]
     urls = "".join(f"<url><loc>{ORIGIN}{p}</loc></url>" for p in paths)
     (DIST / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')
     (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {ORIGIN}/sitemap.xml\n")

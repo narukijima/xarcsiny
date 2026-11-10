@@ -1,8 +1,16 @@
 {
  "title": "delta=r-V",
  "slug": "delta-r-v",
+ "ordinal": "second",
+ "number": "02",
+ "image": "cover-delta-r-v-r2",
+ "cover": "cover_delta",
  "release_date": "2026-11-07",
- "stores": "https://distrokid.com/hyperfollow/xarcsiny/deltar-v",
+ "stores": {
+  "spotify": "https://open.spotify.com/album/4gdYpSCDLxC2AAuyt3ZZjJ",
+  "apple": "https://music.apple.com/us/album/delta-r-v/6829845058",
+  "all": "https://distrokid.com/hyperfollow/xarcsiny/deltar-v"
+ },
  "total": "87:43",
  "minutes": 87,
  "about": "delta = r - V is the reward prediction error: what you get minus what you expected, the quantity dopamine neurons are reported to signal. Each track sets up an expectation with one equation and then breaks it. The album tries the idea on listeners; it is not evidence for it.",

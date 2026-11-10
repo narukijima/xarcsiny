@@ -1,0 +1,194 @@
+{
+ "title": "0.123456789101112",
+ "slug": "0-123456789101112",
+ "ordinal": "third",
+ "number": "03",
+ "image": "cover-0-123456789101112",
+ "cover": "cover_third",
+ "release_date": "2026-11-08",
+ "stores": {
+  "spotify": "https://open.spotify.com/album/4Iu1V6lnXR0tC4gsBjEnOf",
+  "apple": "https://music.apple.com/us/album/0-123456789101112/6832439030",
+  "all": "https://distrokid.com/hyperfollow/xarcsiny/0123456789101112"
+ },
+ "total": "69:16",
+ "minutes": 69,
+ "about": "Write the counting numbers one after another behind a decimal point and you get 0.123456789101112..., Champernowne's constant. Every run of digits turns up in it somewhere, so every number on this album is in there too. The 35 tracks start from numbers and formulas most people have met: the nine-times table, pi, 0.999... = 1, 6174. In each one, a property of the number is the part you remember.",
+ "tracks": [
+  {
+   "n": 1,
+   "title": "x, x^2, x^3, x^4",
+   "what": "The first four powers of x, one drop each."
+  },
+  {
+   "n": 2,
+   "title": "3.14159 26535",
+   "what": "Pi to ten decimal places: one digit per bar picks the chord, and every 0 stops the band."
+  },
+  {
+   "n": 3,
+   "title": "0.999... = 1",
+   "what": "A vowel cut into nines until it becomes a buzz, and a drop that does not wait for the last nine."
+  },
+  {
+   "n": 4,
+   "title": "9, 18, 27, 36, 45, 54, 63, 72, 81, 90",
+   "what": "The nine-times table: the tens climb, the units fall, and they always add up to nine."
+  },
+  {
+   "n": 5,
+   "title": "(x^2+y^2-1)^3=x^2y^3",
+   "what": "The heart curve, drawn by a chopped voice around your head."
+  },
+  {
+   "n": 6,
+   "title": "440 - 432 = 8",
+   "what": "Two tones 8 Hz apart beat 8 times a second: at 120 BPM that is every sixteenth."
+  },
+  {
+   "n": 7,
+   "title": "1, 1, 2, 3, 5, 8, 13",
+   "what": "The Fibonacci numbers, mod 12: twelve drum pads pressed 24 times, then back to the start."
+  },
+  {
+   "n": 8,
+   "title": "1/0",
+   "what": "One divided by zero: x runs to 0 in 1/x, and there is no answer."
+  },
+  {
+   "n": 9,
+   "title": "7641 - 1467 = 6174",
+   "what": "Kaprekar's routine: every four-digit number ends at 6174."
+  },
+  {
+   "n": 10,
+   "title": "a^2+b^2=c^2",
+   "what": "Four right triangles, played as four chords that are driven hard."
+  },
+  {
+   "n": 11,
+   "title": "111111111^2 = 12345678987654321",
+   "what": "Nine ones squared: a palindrome up the scale and back."
+  },
+  {
+   "n": 12,
+   "title": "1/3 + 1/3 + 1/3 = 1",
+   "what": "Three thirds make one whole."
+  },
+  {
+   "n": 13,
+   "title": "2, 3, 5, 7, 11, 13, 17, 19, 23",
+   "what": "The sieve of Eratosthenes played on a grid of sixteenths."
+  },
+  {
+   "n": 14,
+   "title": "1, 2, 4, 8, 16, 31",
+   "what": "Regions of a circle cut by the chords between n points: it looks like doubling, then 31 instead of 32."
+  },
+  {
+   "n": 15,
+   "title": "(-1)^2 = 1",
+   "what": "Minus times minus is plus: reflect the harmony once and it turns bright, twice and it is home."
+  },
+  {
+   "n": 16,
+   "title": "1.6180339887",
+   "what": "The golden ratio phi."
+  },
+  {
+   "n": 17,
+   "title": "9 + 4 = 1",
+   "what": "Clock arithmetic: nine o'clock and four hours is one o'clock."
+  },
+  {
+   "n": 18,
+   "title": "10^100",
+   "what": "A googol: a 1 and a hundred zeros."
+  },
+  {
+   "n": 19,
+   "title": "0, 1, 10, 11, 100, 101, 110, 111",
+   "what": "Counting in binary, one digit a voice."
+  },
+  {
+   "n": 20,
+   "title": "2.718281828",
+   "what": "e, whose decimals repeat 1828 twice before they stop repeating."
+  },
+  {
+   "n": 21,
+   "title": "11, 121, 1331, 14641",
+   "what": "The powers of 11 are the rows of Pascal's triangle."
+  },
+  {
+   "n": 22,
+   "title": "1089",
+   "what": "Reverse a three-digit number, subtract, reverse and add: always 1089; times nine it is itself backwards."
+  },
+  {
+   "n": 23,
+   "title": "0.1 + 0.2 = 0.30000000000000004",
+   "what": "The rounding error of binary floating point."
+  },
+  {
+   "n": 24,
+   "title": "x^2 + y^2 = 1",
+   "what": "A point going round the unit circle."
+  },
+  {
+   "n": 25,
+   "title": "3, 6, 9",
+   "what": "Three, six, nine: the doubling loop on a jaw harp, the missing numbers as stabs."
+  },
+  {
+   "n": 26,
+   "title": "1/89 = 0.011235955",
+   "what": "One over eighty-nine: the Fibonacci numbers, each one place further right."
+  },
+  {
+   "n": 27,
+   "title": "pi = 4",
+   "what": "The staircase proof: however fine the steps around a circle, their length stays 4."
+  },
+  {
+   "n": 28,
+   "title": "1+2+3+4+... = -1/12",
+   "what": "The sum of all counting numbers, famously assigned -1/12."
+  },
+  {
+   "n": 29,
+   "title": "1.41421356",
+   "what": "The square root of two, which is the tritone."
+  },
+  {
+   "n": 30,
+   "title": "i^2 = -1",
+   "what": "Multiplying by i is a quarter turn; twice is -1."
+  },
+  {
+   "n": 31,
+   "title": "0! = 1",
+   "what": "Nothing can be put in order in exactly one way."
+  },
+  {
+   "n": 32,
+   "title": "4 9 2, 3 5 7, 8 1 6",
+   "what": "The 3x3 magic square: every row, column and diagonal adds to 15."
+  },
+  {
+   "n": 33,
+   "title": "10, 9, 8, 7, 6, 5, 4, 3, 2, 1",
+   "what": "A countdown, as the lengths of the parts."
+  },
+  {
+   "n": 34,
+   "title": "1, 4, 9, 16, 25",
+   "what": "The square numbers: the gaps are the odd numbers."
+  },
+  {
+   "n": 35,
+   "title": "e^(i pi)+1=0",
+   "what": "Euler's identity: 1, e, i and pi come in one by one, and the end cancels itself to zero."
+  }
+ ]
+}
