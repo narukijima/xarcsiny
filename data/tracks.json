@@ -3592,7 +3592,7 @@
   ],
   "bars": 84,
   "parts": [
-   "Bell",
+   "Cowbell",
    "Sub bass",
    "Drums"
   ],
@@ -3688,18 +3688,18 @@
   ],
   "bars": 89,
   "parts": [
-   "Glass",
+   "Glass bell",
    "Bell",
+   "Chord wall",
    "808",
    "Drums"
   ],
-  "notes": 2191,
+  "notes": 2431,
   "lines": 23,
   "lag_ms": 8,
   "unwritten": [
-   "Bell up",
-   "Rise",
-   "Wall"
+   "Bell riser",
+   "Rise"
   ]
  },
  {
@@ -3792,10 +3792,13 @@
    "Keys",
    "Hook",
    "Lead",
+   "Swell",
+   "Pad",
+   "Stab",
    "Bass",
    "Drums"
   ],
-  "notes": 2991,
+  "notes": 3519,
   "lines": 26,
   "lag_ms": 18,
   "unwritten": [
@@ -3803,9 +3806,6 @@
    "Impact",
    "Crash",
    "Zap",
-   "Swell",
-   "Stab",
-   "Pad",
    "Heart"
   ]
  },
@@ -3908,7 +3908,7 @@
   "lines": 25,
   "lag_ms": 0,
   "unwritten": [
-   "Climbclimb"
+   "Riser"
   ]
  },
  {
@@ -3999,7 +3999,7 @@
   "bars": 81,
   "parts": [
    "Answer",
-   "Voice up",
+   "Voice",
    "Lead",
    "Bass",
    "Sub bass",
@@ -4011,9 +4011,9 @@
   "unwritten": [
    "Voice",
    "Harmony",
-   "Top",
-   "Pyun",
-   "Mirror",
+   "High harmony",
+   "Zap",
+   "Reversed section",
    "Boom"
   ]
  },
@@ -4206,7 +4206,8 @@
   "bars": 158,
   "parts": [
    "Pluck",
-   "Beep",
+   "Chord beep",
+   "Pair plucks",
    "Lead",
    "Pad",
    "Pair (C4 and G4)",
@@ -4214,12 +4215,12 @@
    "Sub bass",
    "Drums"
   ],
-  "notes": 2731,
+  "notes": 2846,
   "lines": 41,
   "lag_ms": 0,
   "unwritten": [
    "Sweep",
-   "Accent",
+   "Falling pair",
    "Air",
    "Rise",
    "Boom",
@@ -4601,7 +4602,7 @@
   "lines": 22,
   "lag_ms": 0,
   "unwritten": [
-   "Press"
+   "Air press"
   ]
  },
  {
@@ -4964,9 +4965,9 @@
   ],
   "bars": 89,
   "parts": [
-   "Run up",
-   "Long",
-   "Run",
+   "High fiddles",
+   "Long fiddle",
+   "Fiddles",
    "Pad",
    "Cello",
    "Drums"
@@ -4975,7 +4976,7 @@
   "lines": 23,
   "lag_ms": 0,
   "unwritten": [
-   "Climbrise"
+   "Riser"
   ]
  },
  {
@@ -5075,7 +5076,7 @@
   "lines": 20,
   "lag_ms": 14,
   "unwritten": [
-   "Climbrise",
+   "Riser",
    "Shake"
   ]
  },
@@ -5268,7 +5269,7 @@
   "bars": 78,
   "parts": [
    "Zurna",
-   "Zurna low",
+   "Low zurna",
    "Acid",
    "Boom",
    "Sub bass",
@@ -5280,7 +5281,7 @@
   "unwritten": [
    "Drone",
    "Bass",
-   "Chaos"
+   "Chaos riser"
   ]
  },
  {
@@ -5383,8 +5384,8 @@
   "lines": 18,
   "lag_ms": 22,
   "unwritten": [
-   "Whistle",
-   "Men",
+   "Whistle harmony",
+   "Men's voices (thirds)",
    "Whip",
    "Bell",
    "Crash"
@@ -5489,7 +5490,7 @@
   "lines": 22,
   "lag_ms": 0,
   "unwritten": [
-   "Tilli"
+   "Tilli (high drum)"
   ]
  },
  {
@@ -5767,19 +5768,19 @@
   "parts": [
    "Hook",
    "Harmony",
-   "Box",
+   "Music box",
    "Lead",
    "Riff",
    "Pad",
    "Drums"
   ],
-  "notes": 2119,
+  "notes": 2117,
   "lines": 26,
   "lag_ms": 0,
   "unwritten": [
    "Bass",
-   "Driven",
-   "Fx",
+   "Driven chord",
+   "Riser",
    "Boom"
   ]
  },
@@ -5876,18 +5877,18 @@
    "High bubbles",
    "Arpeggio",
    "Bubbles",
+   "Pad",
    "Giant bubbles",
    "Pulse",
    "Sub bass",
    "Drums"
   ],
-  "notes": 3045,
+  "notes": 3285,
   "lines": 28,
   "lag_ms": 12,
   "unwritten": [
-   "Pad",
    "Rise",
-   "Pyun",
+   "Bubble rebound",
    "Boom",
    "Splash"
   ]
@@ -6068,15 +6069,15 @@
    "Wire",
    "Keys",
    "Low string",
+   "Pad",
    "Top string",
    "Bass",
    "Drums"
   ],
-  "notes": 4270,
+  "notes": 4438,
   "lines": 38,
   "lag_ms": 0,
   "unwritten": [
-   "Pad",
    "Zap",
    "Rise",
    "Impact"
@@ -6270,13 +6271,13 @@
   ],
   "bars": 92,
   "parts": [
+   "High line",
    "Bloom",
-   "High",
    "Lead",
    "Bass",
    "Drums"
   ],
-  "notes": 3410,
+  "notes": 3333,
   "lines": 25,
   "lag_ms": 9,
   "unwritten": [
@@ -6375,14 +6376,14 @@
    "Lead",
    "Keys",
    "Pad",
+   "Off-beat bass",
    "Drums"
   ],
-  "notes": 1758,
+  "notes": 2142,
   "lines": 22,
   "lag_ms": 0,
   "unwritten": [
-   "Climbrise",
-   "Tail"
+   "Riser"
   ]
  },
  {
@@ -6474,6 +6475,7 @@
   "parts": [
    "Sheen",
    "Clock",
+   "Chord wall",
    "Double",
    "Lead",
    "Harmony",
@@ -6481,15 +6483,14 @@
    "Bass",
    "Drums"
   ],
-  "notes": 3001,
+  "notes": 3335,
   "lines": 33,
   "lag_ms": 3,
   "unwritten": [
    "Choir",
-   "Wall",
    "Beads",
    "Zap",
-   "Fx",
+   "Riser",
    "Impact"
   ]
  },
@@ -6580,12 +6581,12 @@
   ],
   "bars": 90,
   "parts": [
-   "Top",
+   "High lead",
    "Lead soft",
    "Lead",
    "Arpeggio",
    "Theme",
-   "Verse tune",
+   "Verse lead",
    "Bass",
    "Drums"
   ],
@@ -6887,8 +6888,8 @@
   "lag_ms": 12,
   "unwritten": [
    "Buzz",
-   "Washwash",
-   "Ghost"
+   "Noise wash",
+   "Ghost snare"
   ]
  },
  {
@@ -7274,7 +7275,9 @@
   ],
   "bars": 82,
   "parts": [
+   "Pluck",
    "Lead",
+   "Vocal chop",
    "Harmony",
    "Low voice",
    "Arpeggio",
@@ -7283,12 +7286,10 @@
    "Bass",
    "Drums"
   ],
-  "notes": 3584,
-  "lines": 34,
+  "notes": 2917,
+  "lines": 23,
   "lag_ms": 24,
   "unwritten": [
-   "Chop",
-   "Pluck",
    "Impact",
    "Rise"
   ]
@@ -7391,8 +7392,8 @@
   "lines": 22,
   "lag_ms": 3,
   "unwritten": [
-   "Voice man",
-   "Choir men"
+   "Man's voice (tens)",
+   "Men's choir"
   ]
  },
  {
@@ -7483,21 +7484,21 @@
   "bars": 88,
   "parts": [
    "Bell",
+   "Voice",
    "Pluck",
+   "Keys",
+   "Pad",
    "Reese bass",
    "Bass",
    "Drums"
   ],
-  "notes": 2232,
+  "notes": 2914,
   "lines": 22,
   "lag_ms": 21,
   "unwritten": [
-   "Vox hook",
-   "Vox long",
-   "Pad",
-   "Keys",
-   "Point",
-   "Ghost"
+   "Vocal chop",
+   "Sub drop",
+   "Ghost snare"
   ]
  },
  {
@@ -7589,7 +7590,7 @@
   "parts": [
    "Counter",
    "Lead",
-   "Tone",
+   "440 Hz tone",
    "Chords",
    "Bass",
    "Drums"
@@ -7600,7 +7601,7 @@
   "unwritten": [
    "Hat",
    "Crash",
-   "Rise drop"
+   "Riser"
   ]
  },
  {
@@ -7700,8 +7701,8 @@
   "lines": 17,
   "lag_ms": 21,
   "unwritten": [
-   "Pad07 block",
-   "Pad11 swell",
+   "Block (pad 7)",
+   "Swell (pad 11)",
    "Growl"
   ]
  },
@@ -7896,16 +7897,16 @@
   "bars": 72,
   "parts": [
    "Lead",
-   "Figure",
+   "Stab figure",
+   "Pad",
    "Bass",
    "Drums"
   ],
-  "notes": 1862,
+  "notes": 2198,
   "lines": 18,
   "lag_ms": 36,
   "unwritten": [
-   "Pad",
-   "Ghost",
+   "Ghost snare",
    "Rise"
   ]
  },
@@ -8005,7 +8006,7 @@
   "lines": 17,
   "lag_ms": 23,
   "unwritten": [
-   "Stab wide"
+   "Wide stab"
   ]
  },
  {
@@ -8095,6 +8096,7 @@
   ],
   "bars": 69,
   "parts": [
+   "High lead",
    "Lead",
    "Pluck",
    "Pad",
@@ -8102,11 +8104,10 @@
    "Bass",
    "Drums"
   ],
-  "notes": 1913,
+  "notes": 1981,
   "lines": 18,
   "lag_ms": 27,
   "unwritten": [
-   "Lead",
    "Crash",
    "Impact",
    "Rise"
@@ -8306,15 +8307,15 @@
   "parts": [
    "Lead",
    "Bell",
+   "Stab",
    "Clang",
    "Bass",
    "Drums"
   ],
-  "notes": 991,
+  "notes": 1537,
   "lines": 17,
   "lag_ms": 25,
   "unwritten": [
-   "Stab",
    "Pad",
    "Rise"
   ]
@@ -8715,11 +8716,12 @@
    "Strings",
    "Guitar",
    "Stabs",
+   "Slap bass",
    "Bass",
    "Drums"
   ],
-  "notes": 3492,
-  "lines": 17,
+  "notes": 3504,
+  "lines": 14,
   "lag_ms": 28,
   "unwritten": [
    "Rise"
@@ -8812,7 +8814,7 @@
   ],
   "bars": 72,
   "parts": [
-   "Lead harm",
+   "Lead harmony",
    "Lead",
    "Pluck",
    "Arpeggio",
@@ -8918,20 +8920,22 @@
   "bars": 64,
   "parts": [
    "Lead",
+   "Arpeggio",
+   "Lead low",
+   "Chord voice (bit 1)",
    "Tune",
+   "Chord voice (bit 2)",
+   "Chord voice (bit 4)",
    "Bass",
    "Drums"
   ],
-  "notes": 1685,
-  "lines": 17,
+  "notes": 2637,
+  "lines": 19,
   "lag_ms": 27,
   "unwritten": [
-   "Digit",
-   "Lead low",
-   "Arpeggio",
    "Impact drop",
    "Rise",
-   "Rise intro"
+   "Riser"
   ]
  },
  {
@@ -9031,8 +9035,7 @@
   "lines": 14,
   "lag_ms": 23,
   "unwritten": [
-   "Vinyl",
-   "Vinyl end"
+   "Vinyl"
   ]
  },
  {
@@ -9131,7 +9134,7 @@
   "lag_ms": 21,
   "unwritten": [
    "Choir",
-   "Choir top",
+   "High choir",
    "Impact drop",
    "Rise"
   ]
@@ -9229,11 +9232,11 @@
    "Bass",
    "Drums"
   ],
-  "notes": 1657,
+  "notes": 1652,
   "lines": 16,
   "lag_ms": 24,
   "unwritten": [
-   "Chops",
+   "Vocal chops",
    "Rise"
   ]
  },
@@ -9328,16 +9331,15 @@
    "Struck note (3)",
    "Voice",
    "E. Piano",
+   "Pad",
    "Bass",
    "Drums"
   ],
-  "notes": 1542,
+  "notes": 1873,
   "lines": 16,
   "lag_ms": 36,
   "unwritten": [
-   "Four",
-   "Lead",
-   "Pad",
+   "Glitch (4)",
    "Wobble",
    "Impact",
    "Rise"
@@ -9541,9 +9543,8 @@
   "lines": 33,
   "lag_ms": 21,
   "unwritten": [
-   "Jaw",
-   "Jaw high",
-   "Horn call",
+   "Jaw harp",
+   "Bugle",
    "Taiko"
   ]
  },
@@ -9746,7 +9747,7 @@
   "lines": 13,
   "lag_ms": 7,
   "unwritten": [
-   "Circle",
+   "Circle lead",
    "Vinyl"
   ]
  },
@@ -9949,11 +9950,10 @@
    "Bass",
    "Drums"
   ],
-  "notes": 3085,
+  "notes": 3128,
   "lines": 14,
   "lag_ms": 3,
   "unwritten": [
-   "Lead octave",
    "Rise"
   ]
  },
@@ -10044,6 +10044,7 @@
   ],
   "bars": 41,
   "parts": [
+   "Airy lead",
    "Lead",
    "Choir",
    "Piano",
@@ -10051,11 +10052,10 @@
    "Bass",
    "Drums"
   ],
-  "notes": 1220,
+  "notes": 1336,
   "lines": 10,
   "lag_ms": 21,
   "unwritten": [
-   "Lead air",
    "Crash",
    "Impact",
    "Rise"
@@ -10158,8 +10158,8 @@
   "lines": 29,
   "lag_ms": 0,
   "unwritten": [
-   "Motif b",
-   "Set",
+   "Motif (pluck)",
+   "Choir (set)",
    "Rise"
   ]
  },
@@ -10252,7 +10252,7 @@
   "parts": [
    "Flute",
    "Lead",
-   "Pizz",
+   "Pizzicato",
    "Pedal",
    "Strings",
    "Cello",
@@ -10263,7 +10263,7 @@
   "lines": 16,
   "lag_ms": 0,
   "unwritten": [
-   "Brush"
+   "Brushes"
   ]
  },
  {
@@ -10354,17 +10354,16 @@
   "bars": 75,
   "parts": [
    "Lead",
+   "Stab",
+   "Chords",
    "Bass",
    "Drums"
   ],
-  "notes": 1746,
-  "lines": 23,
+  "notes": 4174,
+  "lines": 40,
   "lag_ms": 21,
   "unwritten": [
-   "Stab",
    "Impact",
-   "Chords",
-   "Lead",
    "Rise",
    "Climb"
   ]
@@ -10459,17 +10458,16 @@
    "Lead",
    "Timbal",
    "Lead harmony",
+   "Chords",
+   "Pad",
    "Deep drum",
    "Bass",
    "Drums"
   ],
-  "notes": 1627,
+  "notes": 1991,
   "lines": 15,
   "lag_ms": 3,
-  "unwritten": [
-   "Pad",
-   "Chords"
-  ]
+  "unwritten": []
  },
  {
   "n": 35,
@@ -10563,17 +10561,17 @@
    "Piano",
    "Pad (e)",
    "Theme",
+   "Chords (pi)",
    "Bass",
    "Drums"
   ],
-  "notes": 1003,
+  "notes": 1039,
   "lines": 10,
   "lag_ms": 3,
   "unwritten": [
    "Pad",
    "Boom",
    "Swell",
-   "Pi sway",
    "Crash",
    "Rise",
    "Impact"
