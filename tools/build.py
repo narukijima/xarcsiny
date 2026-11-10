@@ -24,8 +24,9 @@ ORIGIN = "https://xarcsiny.com"
 COPY = json.loads((SITE / "content/tracks.json").read_text())
 STORES = json.loads((SITE / "data/stores.json").read_text())
 RELEASED = "2026-10-16"
-# The first album has scores: its tracks were frozen as lists of notes. The later ones are built voice by voice in code with no such list, so they have sound and no score.
-FIRST = {"title": "f(t)", "slug": "f-t", "ordinal": "first", "number": "01", "image": "cover-f-t-r2", "cover": "cover", "release_date": RELEASED, "stores": STORES["album"], "scores": True,
+# Every track of the first album has a score: its tracks were frozen as lists of notes. The later ones are built voice by voice in code;
+# a track of theirs has a score (r["bars"]) when its notes could be read back from the code and checked against its audio.
+FIRST = {"title": "f(t)", "slug": "f-t", "ordinal": "first", "number": "01", "image": "cover-f-t-r2", "cover": "cover", "release_date": RELEASED, "stores": STORES["album"],
          "about": "f(t) means a sound as a function of time, the one thing all 35 tracks have in common. It opens on the plainest curve there is, y=sin(x), and closes on a problem nobody has solved, n→3n+1."}
 LATER = [json.loads((SITE / f"content/{name}.json").read_text()) for name in ("album-delta", "album-champernowne")]
 ALBUMS = [FIRST] + LATER
@@ -41,7 +42,7 @@ for i, a in enumerate(ALBUMS):
     for r in a["tracks"]:
         r["album"] = a["slug"]
 TRACKS = [r for a in ALBUMS for r in a["tracks"]]  # every track, album by album
-SCORED = FIRST["tracks"]
+SCORED = [r for r in TRACKS if r.get("bars")]
 FIGURE_NOTE = {"delta-r-v": "This track's row of the album cover: the level of the sound against what came before, in 35 slices read left to right, top to bottom. Filled: louder than expected. Ring: quieter.",
                "0-123456789101112": "This track's flower on the album cover: the digits of the title walk a line that turns 36° per unit of each digit, until it closes."}
 SOCIAL = [("YouTube", "https://www.youtube.com/@xarcsiny"), ("TikTok", "https://www.tiktok.com/@xarcsiny"), ("Instagram", "https://www.instagram.com/xarcsiny/")]
@@ -54,20 +55,22 @@ T = dict(
         lib="Library", albums="Albums", scores="Scores", about="About", about_nav="About", tagline="Every equation has a sound.",
         tap="Or tap one as it falls.", play_random="Play an equation", open_track="About this track", read_score="Read the score", play="Play", listen="Listen to the album", first_album="The first album.",
         album_lede="35 equations, {m} minutes. Every sound in it is calculated: no recordings, no samples.",
-        plots="35 plots from f(t)", plots_more="Open the library", excerpt_t="The scores are public", excerpt_p="All 35 scores of f(t) are here to read, in real notation, moving with the sound.", all_scores="All scores",
+        plots="35 plots from f(t)", plots_more="Open the library", excerpt_t="The scores are public", excerpt_p="{n} scores are here to read, in real notation, moving with the sound.", all_scores="All scores",
         how_t="How it sounds like this", how=[("One equation", "Each track picks one equation and hands it the part you remember: a bass line, a rhythm, the way an echo falls."),
                                          ("Calculated, all of it", "AI composes the track and writes the code. The code computes every sample, including the voices and the accordion."),
                                          ("A person listens", "Naru Kijima listens and decides what stays. Every track here survived that.")], more_about="More about how it works",
         lib_lede="Search by equation, sound or genre. Tap a plot to hear it.", search="Search equations, genres", sort_album="Album order", sort_title="A–Z", sort_slow="Slowest", sort_fast="Fastest", sort_short="Shortest",
         view_list="List", view_grid="Plots", nothing="No equation matches that.", tempo="Tempo", key="Key", meter="Meter", length="Length", genre="Genre", album="Album", label="Label", released="Released", tracks_w="Tracks", credits="Credits",
         decides="What the equation decides", composed="What was composed", equation="The equation", score_h="Score", read_full="Read the full score", prev="Previous", next="Next", track_of="track",
-        on_apple="Apple Music", all_stores="All stores", scores_lede="The notes of all 35 tracks of f(t), in standard notation. Press play and the page follows the sound.",
+        on_apple="Apple Music", all_stores="All stores", scores_lede="The notes of {n} tracks, in standard notation. Press play and the page follows the sound.",
+        score_note_later="These notes were read back from the track's code as it ran: the notes it asked its instruments for, and single sounds whose pitch was measured before the mix. Each part was then checked against its own audio, and only the parts that passed are written. Stereo copies and octave layers share one staff, timing is rounded to values you can read, and whole-mix effects (stutters, stops, reversed bars), pitch bends and filter moves are not written.",
+        not_written="Not written here",
         score_note="This is the notation of what the code plays. Stereo copies and octave layers share one staff, empty staves are hidden, and timing is rounded to values you can read. Pitch bends, filter moves and the rest of what the equation does to the sound can't be written here. That part you have to hear.",
         follow="Follow the sound", dl_pdf="PDF", dl_xml="MusicXML", dl_mid="MIDI", silent="Rest", bars="bars", parts="parts", notes="notes", terms="Terms", privacy="Privacy", follow_h="Follow", site_h="Site",
         albums_lede="Three so far, all out.", also_out="Also out", all_albums="All albums", every_album="All",
         about_title="About", not_found="This equation has no solution.", not_found_p="The page you asked for isn't here.", home="Back to the start",
         now_loading="Loading", desc_home="x=arcsin y makes music from equations. Tap an equation to hear it, read every score, and see what the math decides.", desc_lib="All tracks by x=arcsin y: equations you can play, search and read.",
-        desc_albums="Albums by x=arcsin y.", desc_scores="Sheet music for all 35 tracks of f(t) by x=arcsin y, in standard notation, moving with the sound.", desc_about="How x=arcsin y turns equations into music, and who is behind it.",
+        desc_albums="Albums by x=arcsin y.", desc_scores="Sheet music for x=arcsin y tracks, in standard notation, moving with the sound.", desc_about="How x=arcsin y turns equations into music, and who is behind it.",
         score_title="Score", free_use="Free to read, study and play.", sheet_for="Sheet music", desc_score="Read the sheet music of {t} by x=arcsin y: {p} parts, {b} bars, moving with the sound.", play_score="Play along", terms_title="Terms", privacy_title="Privacy")
 
 
@@ -107,7 +110,7 @@ def shell(path, title, desc, body, og="home", ld=None, nav=None):
     canon = ORIGIN + (path)
     items = [("lib", "/library/"), ("albums", "/albums/"), ("scores", "/scores/"), ("about_nav", "/about/")]
     links = "".join(f'<a href="{(p)}"{" aria-current=page" if nav == k.replace("_nav", "") else ""}>{t[k]}</a>' for k, p in items)
-    data = json.dumps([[r["n"], r["slug"], r["title"], r["hook"], r["duration"], ALBUM[r["album"]]["index"], int(bool(ALBUM[r["album"]].get("scores")))] for r in TRACKS], ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    data = json.dumps([[r["n"], r["slug"], r["title"], r["hook"], r["duration"], ALBUM[r["album"]]["index"], int(bool(r.get("bars")))] for r in TRACKS], ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     albums = json.dumps([[a["title"], a["image"]] for a in ALBUMS], ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     socials = "".join(f'<li><a href="{h}" rel="noopener">{n}</a></li>' for n, h in SOCIAL)
     return f"""<!doctype html>
@@ -167,7 +170,7 @@ def thumb(r, extra=""):
 def home():
     t = T
     field = "".join(f'<li><a class="eq" href="{("/tracks/" + r["slug"] + "/")}" data-play="{r["slug"]}" data-from="hook" data-what="{esc(COPY[r["slug"]]["what"])}">{esc(r["title"])}</a></li>' for r in TRACKS)
-    plots = "".join(f'<li><a href="{("/tracks/" + r["slug"] + "/")}" aria-label="{esc(r["title"])}"><img src="/figures/{r["slug"]}.svg" alt="" loading="lazy" width="200" height="200"><span class="cap eq">{esc(r["title"])}</span></a></li>' for r in SCORED)
+    plots = "".join(f'<li><a href="{("/tracks/" + r["slug"] + "/")}" aria-label="{esc(r["title"])}"><img src="/figures/{r["slug"]}.svg" alt="" loading="lazy" width="200" height="200"><span class="cap eq">{esc(r["title"])}</span></a></li>' for r in FIRST["tracks"])
     how = "".join(f"<li><h3>{esc(a)}</h3><p>{esc(b)}</p></li>" for a, b in t["how"])
     sinc = next(r for r in TRACKS if r["slug"] == "sinc")
     tag = t["tagline"]
@@ -201,7 +204,7 @@ def home():
 <section class="section">
 <div class="section-head"><h2>{t['excerpt_t']}</h2><a class="link" href="/scores/">{t['all_scores']}</a></div>
 <a class="excerpt" href="/scores/sinc/" aria-label="{esc(sinc['title'])}"><img src="/scores/sinc/l007.svg" alt="" loading="lazy"></a>
-<p class="mute" style="margin-top:16px;max-width:34em">{t['excerpt_p']}</p>
+<p class="mute" style="margin-top:16px;max-width:34em">{t['excerpt_p'].format(n=len(SCORED))}</p>
 </section>
 <section class="section">
 <div class="section-head"><h2>{t['how_t']}</h2><a class="link" href="/about/">{t['more_about']}</a></div>
@@ -308,7 +311,7 @@ def track(r):
     if next_r:
         pager.append(f'<a class="eq" href="{("/tracks/" + next_r["slug"] + "/")}"><span>{t["next"]}</span>{esc(next_r["title"])}</a>')
     score_link = score_section = ""
-    if a.get("scores"):
+    if r.get("bars"):
         first_line = next((f"l{k+1:03d}.svg" for k, l in enumerate(json.loads((BUILD / "data" / f"{r['slug']}.json").read_text())["lines"]) if l["f"]), "l001.svg")
         score_link = f'<a class="link" href="{score_path}">{t["read_score"]}</a>'
         score_section = f"""<section class="section"><div class="section-head"><h2>{t['score_h']}</h2><a class="link" href="{score_path}">{t['read_full']}</a></div>
@@ -339,9 +342,9 @@ def scores_index():
         d = json.loads((BUILD / "data" / f"{r['slug']}.json").read_text())
         first = next((l["f"] for l in d["lines"] if l["f"]), None)
         items.append(f"""<li class="score-item"><div><a class="row-title eq" href="{('/scores/' + r['slug'] + '/')}"><span class="row-n num">{r['n']}</span>{esc(r['title'])}</a>
-<span class="list-eq eq">{COPY[r['slug']]['exact']}</span><span class="stat">{r['bars']} {t['bars']} · {len(r['parts'])} {t['parts']} · {r['notes']:,} {t['notes']}</span></div>
+<span class="list-eq eq">{COPY[r['slug']]['exact']}</span><span class="stat">{esc(ALBUM[r['album']]['title'])} · {r['bars']} {t['bars']} · {len(r['parts'])} {t['parts']} · {r['notes']:,} {t['notes']}</span></div>
 <a class="score-thumb" href="{('/scores/' + r['slug'] + '/')}" aria-label="{esc(r['title'])}"><img src="/scores/{r['slug']}/{first}" alt="" loading="lazy"></a></li>""")
-    body = f"""<div class="page-head"><h1>{t['scores']}</h1><p>{t['scores_lede']}</p></div><ul class="score-list">{''.join(items)}</ul><div style="height:var(--section)"></div>"""
+    body = f"""<div class="page-head"><h1>{t['scores']}</h1><p>{t['scores_lede'].format(n=len(SCORED))}</p></div><ul class="score-list">{''.join(items)}</ul><div style="height:var(--section)"></div>"""
     return shell("/scores/", f"{t['scores']} — x=arcsin y", t["desc_scores"], body, "scores", nav="scores")
 
 
@@ -357,11 +360,14 @@ def score_page(r):
         else:
             lines.append(f'<figure class="line"><p class="silent">{t["silent"]} · {l["b1"] - l["b0"]} {t["bars"]}</p><i class="tint"></i><i class="head"></i></figure>')
     safe = re.sub(r"[^A-Za-z0-9._-]+", "-", r["slug"])
+    note = t["score_note"]
+    if r["album"] != "f-t":
+        note = t["score_note_later"] + (f" {t['not_written']}: {', '.join(r['unwritten'])}." if r.get("unwritten") else "")
     body = f"""<div class="track-head"><p class="crumb"><a class="link" href="/scores/">{t['scores']}</a><a class="link" href="{('/tracks/' + r['slug'] + '/')}">{t['open_track']}</a><span class="num">{r['bars']} {t['bars']} · {len(r['parts'])} {t['parts']} · {r['bpm']} BPM · {esc(short_key(r['key']))}</span></p>
 <h1 class="track-title score-title eq">{esc(r['title'])}</h1>
 <p class="track-actions"><button class="button" data-play="{r['slug']}">{ICON_PLAY}{ICON_PAUSE}{t['play_score']}</button><label class="follow"><input type="checkbox" checked>{t['follow']}</label></p></div>
 <section class="score-eq"><h2>{t['equation']}</h2><p class="formula eq">{COPY[r['slug']]['exact']}</p><h2>{t['decides']}</h2><p class="decides">{esc(COPY[r['slug']]['decides'])}</p></section>
-<p class="score-note">{esc(t['score_note'])}</p>
+<p class="score-note">{esc(note)}</p>
 <p class="dl"><a class="link" href="/scores/{r['slug']}/score.pdf" download="x-arcsin-y-{safe}.pdf">{t['dl_pdf']}</a><a class="link" href="/scores/{r['slug']}/score.musicxml" download="x-arcsin-y-{safe}.musicxml">{t['dl_xml']}</a><a class="link" href="/scores/{r['slug']}/score.mid" download="x-arcsin-y-{safe}.mid">{t['dl_mid']}</a><a class="mute" href="/terms/">{t['free_use']}</a></p>
 <div class="sheet" data-slug="{r['slug']}"><div class="sheet-in">{''.join(lines)}</div></div>"""
     ld = {"@context": "https://schema.org", "@type": "MusicComposition", "name": r["title"], "url": f"{ORIGIN}/scores/{r['slug']}/", "composer": {"@type": "MusicGroup", "name": "x=arcsin y"}}
@@ -481,7 +487,7 @@ def main():
     og_image("home", "x=arcsin y", TRACKS[33]["spark"], "Every equation has a sound.")
     for a in ALBUMS:
         og_image("album-" + a["slug"], a["title"], None, "x=arcsin y · 35 tracks")
-    og_image("scores", "x=arcsin y", None, "All 35 scores are public.")
+    og_image("scores", "x=arcsin y", None, f"{len(SCORED)} scores are public.")
     paths = ["/", "/library/", "/albums/", *(f"/albums/{a['slug']}/" for a in ALBUMS), "/scores/", "/about/", "/terms/", "/privacy/"] + [f"/tracks/{r['slug']}/" for r in TRACKS] + [f"/scores/{r['slug']}/" for r in SCORED]
     urls = "".join(f"<url><loc>{ORIGIN}{p}</loc></url>" for p in paths)
     (DIST / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')

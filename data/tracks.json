@@ -3589,7 +3589,17 @@
    0.99,
    0.99,
    1.0
-  ]
+  ],
+  "bars": 84,
+  "parts": [
+   "Bell",
+   "Sub bass",
+   "Drums"
+  ],
+  "notes": 2268,
+  "lines": 21,
+  "lag_ms": 29,
+  "unwritten": []
  },
  {
   "n": 2,
@@ -3675,6 +3685,21 @@
    0.94,
    0.99,
    0.86
+  ],
+  "bars": 89,
+  "parts": [
+   "Glass",
+   "Bell",
+   "808",
+   "Drums"
+  ],
+  "notes": 2191,
+  "lines": 23,
+  "lag_ms": 8,
+  "unwritten": [
+   "Bell up",
+   "Rise",
+   "Wall"
   ]
  },
  {
@@ -3761,6 +3786,27 @@
    1.0,
    0.97,
    0.83
+  ],
+  "bars": 90,
+  "parts": [
+   "Keys",
+   "Hook",
+   "Lead",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 2991,
+  "lines": 26,
+  "lag_ms": 18,
+  "unwritten": [
+   "Rise",
+   "Impact",
+   "Crash",
+   "Zap",
+   "Swell",
+   "Stab",
+   "Pad",
+   "Heart"
   ]
  },
  {
@@ -3847,6 +3893,22 @@
    0.96,
    0.98,
    0.5
+  ],
+  "bars": 98,
+  "parts": [
+   "Hook",
+   "Piano tune",
+   "Piano",
+   "Stab",
+   "Endchord",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 3318,
+  "lines": 25,
+  "lag_ms": 0,
+  "unwritten": [
+   "Climbclimb"
   ]
  },
  {
@@ -4019,6 +4081,25 @@
    0.98,
    0.0,
    0.0
+  ],
+  "bars": 100,
+  "parts": [
+   "Answer",
+   "Hook last",
+   "Hook intro",
+   "Hook rise",
+   "Hook drop",
+   "Growl soft",
+   "Sub bass",
+   "Growl",
+   "Drums"
+  ],
+  "notes": 3052,
+  "lines": 25,
+  "lag_ms": 0,
+  "unwritten": [
+   "Pad",
+   "Rise"
   ]
  },
  {
@@ -4449,6 +4530,19 @@
    1.0,
    0.69,
    0.24
+  ],
+  "bars": 86,
+  "parts": [
+   "Whistle",
+   "Ratchet",
+   "Pipe",
+   "Drums"
+  ],
+  "notes": 2761,
+  "lines": 22,
+  "lag_ms": 0,
+  "unwritten": [
+   "Press"
   ]
  },
  {
@@ -4535,6 +4629,21 @@
    1.0,
    1.0,
    0.97
+  ],
+  "bars": 88,
+  "parts": [
+   "Arpeggio",
+   "Hook",
+   "Sub bass",
+   "Drums"
+  ],
+  "notes": 2954,
+  "lines": 22,
+  "lag_ms": 0,
+  "unwritten": [
+   "Growl",
+   "Blips",
+   "Climb"
   ]
  },
  {
@@ -4793,6 +4902,21 @@
    0.98,
    1.0,
    0.1
+  ],
+  "bars": 89,
+  "parts": [
+   "Run up",
+   "Long",
+   "Run",
+   "Pad",
+   "Cello",
+   "Drums"
+  ],
+  "notes": 3062,
+  "lines": 23,
+  "lag_ms": 0,
+  "unwritten": [
+   "Climbrise"
   ]
  },
  {
@@ -4879,6 +5003,21 @@
    0.98,
    0.96,
    0.0
+  ],
+  "bars": 77,
+  "parts": [
+   "Sing",
+   "Sax",
+   "Horn",
+   "Basspipe",
+   "Drums"
+  ],
+  "notes": 1699,
+  "lines": 20,
+  "lag_ms": 14,
+  "unwritten": [
+   "Climbrise",
+   "Shake"
   ]
  },
  {
@@ -4965,7 +5104,22 @@
    1.0,
    1.0,
    0.58
-  ]
+  ],
+  "bars": 94,
+  "parts": [
+   "Lead",
+   "Riff soft",
+   "Riff",
+   "Riff buzz",
+   "Climb",
+   "Drone",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 3757,
+  "lines": 25,
+  "lag_ms": 0,
+  "unwritten": []
  },
  {
   "n": 18,
@@ -5051,6 +5205,23 @@
    0.99,
    0.94,
    0.61
+  ],
+  "bars": 78,
+  "parts": [
+   "Zurna",
+   "Zurna low",
+   "Acid",
+   "Boom",
+   "Sub bass",
+   "Drums"
+  ],
+  "notes": 3918,
+  "lines": 22,
+  "lag_ms": 19,
+  "unwritten": [
+   "Drone",
+   "Bass",
+   "Chaos"
   ]
  },
  {
@@ -5137,6 +5308,27 @@
    0.99,
    0.86,
    0.33
+  ],
+  "bars": 72,
+  "parts": [
+   "Whistle",
+   "Brass",
+   "Double",
+   "Stab",
+   "Men",
+   "Guitar",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 2746,
+  "lines": 18,
+  "lag_ms": 22,
+  "unwritten": [
+   "Whistle",
+   "Men",
+   "Whip",
+   "Bell",
+   "Crash"
   ]
  },
  {
@@ -5223,6 +5415,22 @@
    0.98,
    1.0,
    0.39
+  ],
+  "bars": 88,
+  "parts": [
+   "Riff",
+   "Tumbi",
+   "Big",
+   "Reed",
+   "Hoy",
+   "Sub bass",
+   "Drums"
+  ],
+  "notes": 2684,
+  "lines": 22,
+  "lag_ms": 0,
+  "unwritten": [
+   "Tilli"
   ]
  },
  {
@@ -5309,6 +5517,21 @@
    0.99,
    1.0,
    0.0
+  ],
+  "bars": 85,
+  "parts": [
+   "Theremin",
+   "Theremin low",
+   "Stab",
+   "Pad",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 2895,
+  "lines": 22,
+  "lag_ms": 19,
+  "unwritten": [
+   "Impact"
   ]
  },
  {
@@ -5567,6 +5790,29 @@
    0.83,
    0.83,
    0.0
+  ],
+  "bars": 97,
+  "parts": [
+   "Tiny",
+   "Answer",
+   "Bloops",
+   "Top",
+   "Arpeggio",
+   "Mid",
+   "Giant",
+   "Pulse",
+   "Sub bass",
+   "Drums"
+  ],
+  "notes": 3044,
+  "lines": 28,
+  "lag_ms": 12,
+  "unwritten": [
+   "Pad",
+   "Rise",
+   "Pyun",
+   "Boom",
+   "Splash"
   ]
  },
  {
@@ -5739,6 +5985,24 @@
    0.55,
    0.54,
    0.58
+  ],
+  "bars": 92,
+  "parts": [
+   "Ting",
+   "Keys",
+   "Low voice",
+   "Top",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 4270,
+  "lines": 38,
+  "lag_ms": 0,
+  "unwritten": [
+   "Pad",
+   "Zap",
+   "Rise",
+   "Impact"
   ]
  },
  {
@@ -5825,7 +6089,26 @@
    0.97,
    0.98,
    0.51
-  ]
+  ],
+  "bars": 40,
+  "parts": [
+   "Hl",
+   "Hr",
+   "Ping",
+   "Top",
+   "Bl",
+   "Cl",
+   "Cr",
+   "Gc",
+   "Ghost",
+   "Gr",
+   "Gl",
+   "Drums"
+  ],
+  "notes": 4934,
+  "lines": 23,
+  "lag_ms": 14,
+  "unwritten": []
  },
  {
   "n": 28,
@@ -5997,6 +6280,23 @@
    0.97,
    0.96,
    0.38
+  ],
+  "bars": 85,
+  "parts": [
+   "Lead up",
+   "Lead low",
+   "Lead top",
+   "Lead last",
+   "Keys",
+   "Drums"
+  ],
+  "notes": 1500,
+  "lines": 22,
+  "lag_ms": 0,
+  "unwritten": [
+   "Pad",
+   "Climbrise",
+   "Tail"
   ]
  },
  {
@@ -6169,6 +6469,24 @@
    0.99,
    1.0,
    0.53
+  ],
+  "bars": 90,
+  "parts": [
+   "Top",
+   "Lead soft",
+   "Lead",
+   "Arpeggio",
+   "Theme",
+   "Verse tune",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 2150,
+  "lines": 23,
+  "lag_ms": 0,
+  "unwritten": [
+   "Crash",
+   "Chords"
   ]
  },
  {
@@ -6341,6 +6659,27 @@
    0.98,
    0.94,
    0.89
+  ],
+  "bars": 93,
+  "parts": [
+   "Tine",
+   "Arpeggio",
+   "Lead",
+   "Choir",
+   "Piano",
+   "Pad",
+   "Bass",
+   "Sub bass",
+   "Drums"
+  ],
+  "notes": 2521,
+  "lines": 25,
+  "lag_ms": 16,
+  "unwritten": [
+   "Zap",
+   "Roll",
+   "Noise",
+   "Impact"
   ]
  },
  {
@@ -6685,6 +7024,24 @@
    1.0,
    0.85,
    0.82
+  ],
+  "bars": 60,
+  "parts": [
+   "Vox octave",
+   "Voice",
+   "Piano",
+   "Strings",
+   "Organ",
+   "Bass",
+   "Sub bass",
+   "Drums"
+  ],
+  "notes": 2902,
+  "lines": 21,
+  "lag_ms": 24,
+  "unwritten": [
+   "Dial",
+   "Ring"
   ]
  },
  {
@@ -6771,6 +7128,26 @@
    0.96,
    0.96,
    0.97
+  ],
+  "bars": 82,
+  "parts": [
+   "Lead",
+   "Harmony",
+   "Low voice",
+   "Arpeggio",
+   "Stab",
+   "Pad",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 3584,
+  "lines": 34,
+  "lag_ms": 24,
+  "unwritten": [
+   "Chop",
+   "Pluck",
+   "Impact",
+   "Rise"
   ]
  },
  {
@@ -6857,6 +7234,23 @@
    1.0,
    1.0,
    0.88
+  ],
+  "bars": 84,
+  "parts": [
+   "Lute",
+   "Choir women",
+   "Voice woman",
+   "Harmonium hold",
+   "Harmonium",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 3277,
+  "lines": 22,
+  "lag_ms": 3,
+  "unwritten": [
+   "Voice man",
+   "Choir men"
   ]
  },
  {
@@ -6943,6 +7337,25 @@
    0.98,
    0.92,
    0.74
+  ],
+  "bars": 88,
+  "parts": [
+   "Bell answer",
+   "Pluck hook",
+   "Reese bass",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 2232,
+  "lines": 22,
+  "lag_ms": 21,
+  "unwritten": [
+   "Vox hook",
+   "Vox long",
+   "Pad",
+   "Keys",
+   "Point",
+   "Ghost"
   ]
  },
  {
@@ -7029,6 +7442,23 @@
    0.67,
    0.65,
    0.62
+  ],
+  "bars": 73,
+  "parts": [
+   "Counter",
+   "Lead",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1228,
+  "lines": 19,
+  "lag_ms": 13,
+  "unwritten": [
+   "Tone",
+   "Chords",
+   "Hat",
+   "Crash",
+   "Rise drop"
   ]
  },
  {
@@ -7115,6 +7545,22 @@
    0.96,
    0.8,
    0.61
+  ],
+  "bars": 64,
+  "parts": [
+   "Organ tune",
+   "Organ chords",
+   "Bass sub",
+   "Pad08 boom",
+   "Drums"
+  ],
+  "notes": 1469,
+  "lines": 17,
+  "lag_ms": 21,
+  "unwritten": [
+   "Pad07 block",
+   "Pad11 swell",
+   "Growl"
   ]
  },
  {
@@ -7287,6 +7733,21 @@
    0.99,
    0.98,
    0.91
+  ],
+  "bars": 72,
+  "parts": [
+   "Lead",
+   "Figure",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1862,
+  "lines": 18,
+  "lag_ms": 36,
+  "unwritten": [
+   "Pad",
+   "Ghost",
+   "Rise"
   ]
  },
  {
@@ -7459,6 +7920,24 @@
    0.99,
    0.98,
    0.32
+  ],
+  "bars": 69,
+  "parts": [
+   "Lead",
+   "Pluck",
+   "Pad",
+   "Piano",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1913,
+  "lines": 18,
+  "lag_ms": 27,
+  "unwritten": [
+   "Lead",
+   "Crash",
+   "Impact",
+   "Rise"
   ]
  },
  {
@@ -7545,6 +8024,23 @@
    0.98,
    0.78,
    0.0
+  ],
+  "bars": 55,
+  "parts": [
+   "Lead",
+   "Third",
+   "Choir",
+   "Pad",
+   "Keys",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1740,
+  "lines": 14,
+  "lag_ms": 21,
+  "unwritten": [
+   "Snare",
+   "Impact"
   ]
  },
  {
@@ -7631,6 +8127,22 @@
    0.95,
    0.97,
    0.0
+  ],
+  "bars": 59,
+  "parts": [
+   "Lead",
+   "Bell",
+   "Clang",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 991,
+  "lines": 17,
+  "lag_ms": 25,
+  "unwritten": [
+   "Stab",
+   "Pad",
+   "Rise"
   ]
  },
  {
@@ -7717,6 +8229,23 @@
    1.0,
    0.98,
    0.77
+  ],
+  "bars": 62,
+  "parts": [
+   "Arpeggio",
+   "Lead",
+   "Whistle",
+   "Keys",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 2057,
+  "lines": 16,
+  "lag_ms": 22,
+  "unwritten": [
+   "Count",
+   "Rise",
+   "Impact"
   ]
  },
  {
@@ -7803,6 +8332,20 @@
    0.99,
    1.0,
    0.99
+  ],
+  "bars": 73,
+  "parts": [
+   "Lead",
+   "Chords",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1907,
+  "lines": 18,
+  "lag_ms": 41,
+  "unwritten": [
+   "Rise",
+   "Impact"
   ]
  },
  {
@@ -7889,6 +8432,21 @@
    0.94,
    0.97,
    0.84
+  ],
+  "bars": 68,
+  "parts": [
+   "Fiddle",
+   "Pad",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1130,
+  "lines": 20,
+  "lag_ms": 3,
+  "unwritten": [
+   "Lead",
+   "Choir",
+   "Banjo"
   ]
  },
  {
@@ -7975,6 +8533,22 @@
    0.98,
    1.0,
    0.77
+  ],
+  "bars": 56,
+  "parts": [
+   "Horns",
+   "Clav",
+   "Strings",
+   "Guitar",
+   "Stabs",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 3492,
+  "lines": 17,
+  "lag_ms": 28,
+  "unwritten": [
+   "Rise"
   ]
  },
  {
@@ -8061,6 +8635,25 @@
    0.82,
    0.59,
    0.55
+  ],
+  "bars": 72,
+  "parts": [
+   "Lead harm",
+   "Lead",
+   "Pluck",
+   "Arpeggio",
+   "Supersaw",
+   "Pad",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 2582,
+  "lines": 19,
+  "lag_ms": 10,
+  "unwritten": [
+   "Crash",
+   "Rise",
+   "Impact"
   ]
  },
  {
@@ -8147,6 +8740,24 @@
    0.97,
    0.98,
    0.79
+  ],
+  "bars": 64,
+  "parts": [
+   "Lead",
+   "Tri line",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1685,
+  "lines": 17,
+  "lag_ms": 27,
+  "unwritten": [
+   "Digit",
+   "Lead low",
+   "Arpeggio",
+   "Impact drop",
+   "Rise",
+   "Rise intro"
   ]
  },
  {
@@ -8319,6 +8930,21 @@
    1.0,
    0.87,
    0.93
+  ],
+  "bars": 72,
+  "parts": [
+   "Lead",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1977,
+  "lines": 18,
+  "lag_ms": 21,
+  "unwritten": [
+   "Choir",
+   "Choir top",
+   "Impact drop",
+   "Rise"
   ]
  },
  {
@@ -8491,6 +9117,26 @@
    0.99,
    0.75,
    0.05
+  ],
+  "bars": 63,
+  "parts": [
+   "Lead",
+   "Three",
+   "Voice",
+   "E. Piano",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1542,
+  "lines": 16,
+  "lag_ms": 36,
+  "unwritten": [
+   "Four",
+   "Lead",
+   "Pad",
+   "Wobble",
+   "Impact",
+   "Rise"
   ]
  },
  {
@@ -8577,6 +9223,22 @@
    0.99,
    0.9,
    0.0
+  ],
+  "bars": 65,
+  "parts": [
+   "Whistle",
+   "Cuica hook",
+   "Cavaco",
+   "Pad",
+   "Crowd",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 7494,
+  "lines": 33,
+  "lag_ms": 38,
+  "unwritten": [
+   "Surdo"
   ]
  },
  {
@@ -8663,6 +9325,23 @@
    0.97,
    0.96,
    0.85
+  ],
+  "bars": 81,
+  "parts": [
+   "Stab voices",
+   "Voices",
+   "Stab horns",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 2529,
+  "lines": 33,
+  "lag_ms": 21,
+  "unwritten": [
+   "Jaw",
+   "Jaw high",
+   "Horn call",
+   "Taiko"
   ]
  },
  {
@@ -8749,6 +9428,22 @@
    0.53,
    0.26,
    0.1
+  ],
+  "bars": 65,
+  "parts": [
+   "Lead",
+   "Lead low",
+   "Bass",
+   "Sub bass",
+   "Drums"
+  ],
+  "notes": 2146,
+  "lines": 16,
+  "lag_ms": 27,
+  "unwritten": [
+   "Echo",
+   "Slap bass",
+   "Pad"
   ]
  },
  {
@@ -9007,6 +9702,22 @@
    0.95,
    0.96,
    0.74
+  ],
+  "bars": 57,
+  "parts": [
+   "Solo",
+   "Lead",
+   "Arpeggio",
+   "Pad",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 3085,
+  "lines": 14,
+  "lag_ms": 3,
+  "unwritten": [
+   "Lead octave",
+   "Rise"
   ]
  },
  {
@@ -9093,6 +9804,24 @@
    0.69,
    0.68,
    0.65
+  ],
+  "bars": 41,
+  "parts": [
+   "Lead",
+   "Choir",
+   "Piano",
+   "Pad",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1220,
+  "lines": 10,
+  "lag_ms": 21,
+  "unwritten": [
+   "Lead air",
+   "Crash",
+   "Impact",
+   "Rise"
   ]
  },
  {
@@ -9179,6 +9908,22 @@
    1.0,
    1.0,
    0.0
+  ],
+  "bars": 61,
+  "parts": [
+   "Counter",
+   "Motif",
+   "Stab",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 2713,
+  "lines": 29,
+  "lag_ms": 0,
+  "unwritten": [
+   "Motif b",
+   "Set",
+   "Rise"
   ]
  },
  {
@@ -9265,6 +10010,23 @@
    0.88,
    0.82,
    0.81
+  ],
+  "bars": 61,
+  "parts": [
+   "Flute",
+   "Lead",
+   "Pizz",
+   "Pedal",
+   "Strings",
+   "Cello",
+   "Drums"
+  ],
+  "notes": 1293,
+  "lines": 16,
+  "lag_ms": 0,
+  "unwritten": [
+   "Sub bass",
+   "Brush"
   ]
  },
  {
@@ -9351,6 +10113,23 @@
    1.0,
    0.85,
    0.98
+  ],
+  "bars": 75,
+  "parts": [
+   "Lead",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1746,
+  "lines": 23,
+  "lag_ms": 21,
+  "unwritten": [
+   "Stab",
+   "Impact",
+   "Chords",
+   "Lead",
+   "Rise",
+   "Climb"
   ]
  },
  {
@@ -9437,6 +10216,23 @@
    1.0,
    0.76,
    0.76
+  ],
+  "bars": 56,
+  "parts": [
+   "Lead",
+   "Lead tune",
+   "Timbal",
+   "Lead third",
+   "Frog",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1627,
+  "lines": 15,
+  "lag_ms": 3,
+  "unwritten": [
+   "Pad",
+   "Chords"
   ]
  },
  {
@@ -9523,6 +10319,28 @@
    0.0,
    0.0,
    0.0
+  ],
+  "bars": 35,
+  "parts": [
+   "Lead",
+   "I arp",
+   "Piano",
+   "E swell",
+   "Theme zero",
+   "Bass",
+   "Drums"
+  ],
+  "notes": 1003,
+  "lines": 10,
+  "lag_ms": 3,
+  "unwritten": [
+   "Pad",
+   "Boom",
+   "Swell",
+   "Pi sway",
+   "Crash",
+   "Rise",
+   "Impact"
   ]
  }
 ]

@@ -16,6 +16,7 @@ from paths import SITE, source  # noqa: E402
 
 COPY = json.loads((SITE / "content" / "tracks.json").read_text())
 BUILD = source("build")
+ALBUMS = {a["slug"]: a["title"] for a in (json.loads(f.read_text()) for f in sorted((SITE / "content").glob("album-*.json")))}
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 CSS = """@page { size: A4 landscape; margin: 12mm 12mm 12mm; } body { margin: 0; font: 11pt 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #0d0d0d; }
 h1 { font-size: 28pt; font-weight: 500; margin: 0 0 2pt; letter-spacing: -.01em; } p { margin: 0 0 12pt; color: #6b6b6b; font-size: 9pt; }
@@ -33,7 +34,7 @@ def one(r):
             parts.append(f"<h2>{html.escape(line['s'])}</h2>")
         if line["f"]:
             parts.append(f'<img src="{(BUILD / "scores" / slug / line["f"]).as_uri()}">')
-    page = f"<!doctype html><meta charset=utf-8><style>{CSS}</style><h1>{html.escape(r['title'])}</h1><p>x=arcsin y · f(t) · {r['n']} / 35 · {r['bpm']} BPM · xarcsiny.com</p><p class=\"f\">{COPY[slug]['exact']}</p>{''.join(parts)}"
+    page = f"<!doctype html><meta charset=utf-8><style>{CSS}</style><h1>{html.escape(r['title'])}</h1><p>x=arcsin y · {html.escape(ALBUMS.get(r.get('album', 'f-t'), 'f(t)'))} · {r['n']} / 35 · {r['bpm']} BPM · xarcsiny.com</p><p class=\"f\">{COPY[slug]['exact']}</p>{''.join(parts)}"
     with tempfile.TemporaryDirectory() as tmp:
         src = Path(tmp) / "s.html"
         src.write_text(page, encoding="utf-8")
@@ -45,7 +46,7 @@ def one(r):
 def main():
     (BUILD / "pdf").mkdir(exist_ok=True)
     only = set(sys.argv[1:])  # slugs; none means every score
-    rows = [r for r in json.loads((SITE / "data" / "tracks.json").read_text()) if r.get("album", "f-t") == "f-t" and (not only or r["slug"] in only)]
+    rows = [r for r in json.loads((SITE / "data" / "tracks.json").read_text()) if r.get("bars") and (not only or r["slug"] in only)]
     with ThreadPoolExecutor(6) as ex:
         results = list(ex.map(one, rows))
     print(len(results), "PDFs", sum(s for _, s in results) // 1_000_000, "MB", max(s for _, s in results) // 1_000_000, "MB largest")

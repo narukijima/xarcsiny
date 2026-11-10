@@ -5,8 +5,10 @@ Inputs are read-only and private: album masters, the frozen events of each relea
 Output goes to the private build folder, never to this repository: {audio,data,scores}.
 A small public index stays here: data/tracks.json.
 
-The first album has frozen events, so it gets scores. The later albums are built voice by voice in code with no such list:
-they get audio and loudness curves only (--albums; their inputs are the "albums" list of the sources file).
+The first album has frozen events, so every track gets a score. The later albums are built voice by voice in code with no
+such list. Their notes are read back from the code as it runs and each part is checked against its own audio (a private
+tool); a track gets a score when that check let enough of it through, and the parts it refused are named on the page.
+(--albums; their inputs are the "albums" list of the sources file.)
 
 usage: extract.py [--only SLUG,...] [--no-audio] [--jobs N]
        extract.py --albums [--no-audio] [--jobs N]
@@ -21,6 +23,7 @@ import math
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 
@@ -31,7 +34,7 @@ import verovio
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from paths import SITE, setting, source  # noqa: E402
-from score_xml import Score, esc, to_midi  # noqa: E402
+from score_xml import Score, esc, family, to_midi  # noqa: E402
 
 ALBUM = source("masters")
 RECORDS = source("records")
@@ -47,6 +50,10 @@ VEROVIO = {"pageWidth": 2400, "pageHeight": 3000, "scale": 42, "adjustPageHeight
            "font": "Bravura", "svgViewBox": True, "svgRemoveXlink": True, "pageMarginTop": 36, "pageMarginBottom": 24, "pageMarginLeft": 24,
            "pageMarginRight": 24, "minLastJustification": 0, "mnumInterval": 1}
 SECTION_WORDS = re.compile(r"^(.*?)[_\s-]?(\d*)$")
+# A later album's notes must line up with its released master, or it gets no score. The measure is the lag of the master's
+# attacks behind the written drum hits. On the first album, whose events are exact, it reads -19 to 58 ms (a kick's loudest
+# rise comes after its start), so that range is what "lined up" can mean here.
+LAG_MS = (-25, 60)
 
 
 def slug_of(track_id):
@@ -141,6 +148,28 @@ def alignment_lag_ms(mono, sr, times):
         if s > best:
             best, lag_best = s, lag
     return lag_best * 5
+
+
+def master_lag_ms(mono, sr, times, span_ms=120):
+    """Milliseconds by which the master's attacks trail the written drum hits, searched within +-span_ms at 1 ms steps.
+    A wider search would only find the next off-beat; a real offset shows as a lag away from 0 or at the edge."""
+    if len(times) < 8:
+        return None
+    hop = sr // 1000
+    n = len(mono) // hop
+    env = np.sqrt((mono[: n * hop] ** 2).reshape(n, hop).mean(axis=1))
+    onset = np.maximum(np.diff(env, prepend=env[0]), 0)
+    impulses = np.zeros(n)
+    for t in times:
+        i = int(round(t * 1000))
+        if 0 <= i < n:
+            impulses[i] = 1
+    best, lag_best = -1.0, 0
+    for lag in range(-span_ms, span_ms + 1):
+        v = float((onset * np.roll(impulses, lag)).sum())
+        if v > best:
+            best, lag_best = v, lag
+    return lag_best
 
 
 def section_label(name):
@@ -286,16 +315,49 @@ def later_albums():
             if hashlib.sha256(wav.read_bytes()).hexdigest() != t["distribution_file"]["sha256"]:
                 raise SystemExit(f"{album['slug']} {t['position']}: the master is not the delivered file")
             record = json.loads((RECORDS / track_id / "track.json").read_text())
-            jobs.append({"album": album["slug"], "album_title": content[album["slug"]]["title"], "n": t["position"], "slug": slug, "title": titles[t["position"]], "wav": str(wav),
-                         "reading": t.get("reading"), "bpm": t.get("bpm"), "key": t.get("key"), "meter": record.get("meter"), "hook": float(t.get("preview_start_s") or 0)})
+            job = {"album": album["slug"], "album_title": content[album["slug"]]["title"], "n": t["position"], "slug": slug, "title": titles[t["position"]], "wav": str(wav),
+                   "reading": t.get("reading"), "bpm": t.get("bpm"), "key": t.get("key"), "meter": record.get("meter"), "hook": float(t.get("preview_start_s") or 0)}
+            notes = Path(album["notes"].format(track_id=track_id)).expanduser() if album.get("notes") else None
+            if notes and (notes / "report.json").exists():
+                summary = json.loads((notes / "report.json").read_text())["summary"]
+                if summary.get("publish"):
+                    job.update(notes=str(notes / "events.json"), unwritten=summary.get("unwritten") or [], record={"meter": record.get("meter"), "key": record.get("key")})
+            jobs.append(job)
     return jobs
+
+
+def later_score(job, mono, sr):
+    """Score files and the bar clock of a later album's track, or None when its notes do not line up with the master."""
+    doc = json.loads(Path(job["notes"]).read_text())
+    out_dir = OUT / "scores" / job["slug"]
+    score, lines = build_score(doc, job["record"], job["title"], out_dir)
+    bar_t = beat_times(doc, [F(b * score.bar_beats) for b in range(score.n_bars + 1)])
+    def onsets(rx):
+        return sorted({F(e["beat"]) for e in doc["events"] if re.search(rx, e["inst"], re.I) and ("midi" in e) == (rx == ".")})
+    beats = next((b for b in (onsets("kick|bd|thump|stomp|surdo"), onsets("snare|clap|hat|tom|perc|drum|open|shaker|crash|cym|ride|tick|stick|tamb|feet"), onsets(".")) if len(b) >= 8), [])
+    lag = master_lag_ms(mono, sr, beat_times(doc, beats[:2000]))
+    if lag is None or not LAG_MS[0] <= lag <= LAG_MS[1]:
+        shutil.rmtree(out_dir)
+        return None, lag
+    names = []
+    for stem in job["unwritten"]:
+        name = family(stem)
+        if name not in names:
+            names.append(name)
+    return {"data": {"bars": [round(t, 4) for t in bar_t], "barBeats": score.bar_beats, "lines": lines},
+            "row": {"bars": score.n_bars, "parts": [p.name for p in score.parts], "notes": sum(len(p.notes) for p in score.parts), "lines": len(lines), "lag_ms": lag, "unwritten": names}}, lag
 
 
 def one_later(job, skip_audio=False):
     curves = loudness_curves(job["wav"])
-    curves.pop("mono"), curves.pop("sr")
+    mono, sr = curves.pop("mono"), curves.pop("sr")
     slug = job["slug"]
     data = {"slug": slug, "fps": FPS, "duration": round(curves["duration"], 3), "wave": curves["wave"], "env": curves["env"], "bass": curves["bass"], "lines": []}
+    scored, lag = later_score(job, mono, sr) if job.get("notes") else (None, None)
+    if scored:
+        data.update(scored["data"])
+    elif (OUT / "scores" / slug).exists():
+        shutil.rmtree(OUT / "scores" / slug)   # a score from an earlier run that no longer passes
     (OUT / "data").mkdir(parents=True, exist_ok=True)
     (OUT / "data" / f"{slug}.json").write_text(json.dumps(data, separators=(",", ":")), encoding="utf-8")
     mp3 = OUT / "audio" / f"{slug}.mp3"
@@ -303,8 +365,13 @@ def one_later(job, skip_audio=False):
         mp3.parent.mkdir(parents=True, exist_ok=True)
         subprocess.run([FFMPEG, "-v", "error", "-y", "-i", job["wav"], "-ac", "2", "-ar", "44100", "-c:a", "libmp3lame", "-b:a", f"{MP3_KBPS}k", "-id3v2_version", "3",
                         "-metadata", f"title={job['title']}", "-metadata", "artist=x=arcsin y", "-metadata", f"album={job['album_title']}", "-metadata", f"track={job['n']}/35", str(mp3)], check=True)
-    return {"n": job["n"], "album": job["album"], "slug": slug, "title": job["title"], "reading": job["reading"], "bpm": job["bpm"], "key": job["key"], "meter": job["meter"],
-            "duration": round(curves["duration"], 2), "hook": round(job["hook"], 2), "spark": curves["spark"]}
+    row = {"n": job["n"], "album": job["album"], "slug": slug, "title": job["title"], "reading": job["reading"], "bpm": job["bpm"], "key": job["key"], "meter": job["meter"],
+           "duration": round(curves["duration"], 2), "hook": round(job["hook"], 2), "spark": curves["spark"]}
+    if scored:
+        row.update(scored["row"])
+    elif job.get("notes"):
+        row["held_lag_ms"] = lag
+    return row
 
 
 def one_later_quiet(job):
@@ -318,7 +385,7 @@ def main_later(a):
     first = [r for r in json.loads(INDEX.read_text()) if r.get("album", "f-t") == "f-t"]
     INDEX.write_text(json.dumps(first + rows, ensure_ascii=False, indent=1), encoding="utf-8")
     for r in rows:
-        print(r["album"], r["n"], r["slug"], r["title"], r["duration"])
+        print(r["album"], r["n"], r["slug"], r["title"], r["duration"], f"score: {r['bars']} bars, {len(r['parts'])} parts, {r['notes']} notes, lag {r['lag_ms']} ms" if r.get("bars") else f"no score (lag {r['held_lag_ms']} ms)" if "held_lag_ms" in r else "no score")
 
 
 def main():
