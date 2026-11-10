@@ -340,8 +340,9 @@ def later_score(job, mono, sr):
         shutil.rmtree(out_dir)
         return None, lag
     names = []
+    given = doc.get("inst_names") or {}
     for stem in job["unwritten"]:
-        name = family(stem)
+        name = given.get(stem) or family(stem)
         if name not in names:
             names.append(name)
     return {"data": {"bars": [round(t, 4) for t in bar_t], "barBeats": score.bar_beats, "lines": lines},
@@ -413,7 +414,8 @@ def main():
     INDEX.parent.mkdir(parents=True, exist_ok=True)
     INDEX.write_text(json.dumps(rows, ensure_ascii=False, indent=1), encoding="utf-8")
     for r in rows:
-        print(r["n"], r["slug"], r["title"], r["bars"], "bars", r["lines"], "lines", len(r["parts"]), "parts", r["notes"], "notes", "lag", r["lag_ms"], "ms")
+        if r.get("bars"):   # a later album's track without a score has no bars
+            print(r["n"], r["slug"], r["title"], r["bars"], "bars", r["lines"], "lines", len(r["parts"]), "parts", r["notes"], "notes", "lag", r["lag_ms"], "ms")
 
 
 if __name__ == "__main__":

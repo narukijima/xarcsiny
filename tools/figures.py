@@ -3,9 +3,12 @@
 
 First album: the plot from cover_geometry() in the track's score. Run with the Python that can import the engine,
 because the scores do. Both are private (tools/paths.py).
-Later albums: the track's own part of its album cover, drawn by the same rule as the cover.
+Later albums: the plot from cover_geometry() in the track's own figure.py next to its record (private, pure Python: the
+released score is frozen and is not changed for this). A track without one falls back to its part of the album cover,
+drawn by the same rule as the cover:
   delta=r-V: one row of the cover. The level of the sound against a running expectation, in 35 slices of the track.
   0.123456789101112: the title's digits walk a turtle that turns 36 degrees per unit of the digit and steps forward.
+Writes figure-kinds.json next to the figures (not published): slug -> "formula" or "cover", which the build reads.
 
 usage: figures.py [--later]   (--later draws only the later albums and needs numpy and soundfile, not the engine)
 """
@@ -118,23 +121,45 @@ def dots_svg(row, top, per_line=6, r_min=0.28, r_max=0.70, power=0.7):
     return "".join(out)
 
 
+def own_figure(track_id):
+    """The track's figure.py, if it has one: its cover_geometry() drawn like the first album's plots."""
+    path = source("records") / track_id / "figure.py"
+    if not path.exists():
+        return None
+    spec = importlib.util.spec_from_file_location("figure_" + track_id.replace("-", "_"), path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)          # its asserts check the mathematics; a failing one stops the build
+    return svg_of(mod.cover_geometry())
+
+
 def later(rows):
     by_album = {}
     for r in rows:
         if r.get("album", "f-t") != "f-t":
             by_album.setdefault(r["album"], []).append(r)
+    kinds_path = OUT.parent / "figure-kinds.json"
+    kinds = json.loads(kinds_path.read_text()) if kinds_path.exists() else {}
     for album in setting("albums"):
         mine = sorted(by_album.get(album["slug"], []), key=lambda r: r["n"])
-        if album["slug"] == "delta-r-v":
-            sheet = json.loads(Path(album["sheet"]).expanduser().read_text())
-            wavs = [Path(album["masters"]).expanduser() / t["distribution_file"]["file"] for t in sorted(sheet["tracks"], key=lambda t: t["position"])]
-            levels, top = delta_rows(wavs)
-            for r in mine:
-                (OUT / f"{r['slug']}.svg").write_text(dots_svg(levels[r["n"] - 1], top))
-        else:
-            for r in mine:
-                (OUT / f"{r['slug']}.svg").write_text(rosette_svg(r["title"]))
-        print(album["slug"], len(mine), "figures")
+        sheet = json.loads(Path(album["sheet"]).expanduser().read_text())
+        ids = {t["position"]: t["track_id"] for t in sheet["tracks"]}
+        levels = top = None
+        n_own = 0
+        for r in mine:
+            svg = own_figure(ids[r["n"]])
+            if svg is not None:
+                kinds[r["slug"]] = "formula"
+                n_own += 1
+            elif album["slug"] == "delta-r-v":
+                if levels is None:
+                    wavs = [Path(album["masters"]).expanduser() / t["distribution_file"]["file"] for t in sorted(sheet["tracks"], key=lambda t: t["position"])]
+                    levels, top = delta_rows(wavs)
+                svg, kinds[r["slug"]] = dots_svg(levels[r["n"] - 1], top), "cover"
+            else:
+                svg, kinds[r["slug"]] = rosette_svg(r["title"]), "cover"
+            (OUT / f"{r['slug']}.svg").write_text(svg)
+        print(album["slug"], len(mine), "figures,", n_own, "from the track's own formula")
+    kinds_path.write_text(json.dumps(kinds, indent=1, sort_keys=True))
 
 
 def main():
@@ -145,6 +170,8 @@ def main():
     rows = [r for r in rows if r.get("album", "f-t") == "f-t"]
     sys.path.insert(0, str(source("engine")))
     missing = []
+    kinds_path = OUT.parent / "figure-kinds.json"
+    kinds = json.loads(kinds_path.read_text()) if kinds_path.exists() else {}
     for r in rows:
         path = source("records") / r["id"] / "score.py"
         spec = importlib.util.spec_from_file_location("track_" + r["id"].replace("-", "_"), path)
@@ -154,9 +181,11 @@ def main():
             geo = mod.cover_geometry()
             svg = svg_of(geo)
             (OUT / f"{r['slug']}.svg").write_text(svg)
+            kinds[r["slug"]] = "formula"
             print(r["slug"], len(svg) // 1024, "KB")
         except Exception as e:  # a track without a plot simply shows none
             missing.append((r["slug"], repr(e)[:120]))
+    kinds_path.write_text(json.dumps(kinds, indent=1, sort_keys=True))
     print("missing", missing)
 
 

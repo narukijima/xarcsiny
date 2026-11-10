@@ -129,8 +129,9 @@ def read_parts(doc):
         if not twin:
             kept.append((inst, notes))
     families = {}
+    names = doc.get("inst_names") or {}     # reader-facing names the track's record gives its code-named stems
     for inst, notes in kept:
-        families.setdefault(family(inst), []).extend(notes)
+        families.setdefault(names.get(inst) or family(inst), []).extend(notes)
     parts = []
     for inst, notes in families.items():
         notes = sorted(set(notes))

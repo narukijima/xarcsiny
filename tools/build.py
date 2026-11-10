@@ -43,8 +43,11 @@ for i, a in enumerate(ALBUMS):
         r["album"] = a["slug"]
 TRACKS = [r for a in ALBUMS for r in a["tracks"]]  # every track, album by album
 SCORED = [r for r in TRACKS if r.get("bars")]
+# what a figure is when a track has no plot of its own formula (figures.py falls back to its part of the album cover)
 FIGURE_NOTE = {"delta-r-v": "This track's row of the album cover: the level of the sound against what came before, in 35 slices read left to right, top to bottom. Filled: louder than expected. Ring: quieter.",
                "0-123456789101112": "This track's flower on the album cover: the digits of the title walk a line that turns 36° per unit of each digit, until it closes."}
+FIGURE_KIND = json.loads((BUILD / "figure-kinds.json").read_text()) if (BUILD / "figure-kinds.json").exists() else {}
+PLOTTED = [r for r in TRACKS if FIGURE_KIND.get(r["slug"]) == "formula"]
 SOCIAL = [("YouTube", "https://www.youtube.com/@xarcsiny"), ("TikTok", "https://www.tiktok.com/@xarcsiny"), ("Instagram", "https://www.instagram.com/xarcsiny/")]
 CONTACT = "contact@xarcsiny.com"
 GITHUB = "https://github.com/narukijima/xarcsiny"
@@ -55,7 +58,7 @@ T = dict(
         lib="Library", albums="Albums", scores="Scores", about="About", about_nav="About", tagline="Every equation has a sound.",
         tap="Or tap one as it falls.", play_random="Play an equation", open_track="About this track", read_score="Read the score", play="Play", listen="Listen to the album", first_album="The first album.",
         album_lede="35 equations, {m} minutes. Every sound in it is calculated: no recordings, no samples.",
-        plots="35 plots from f(t)", plots_more="Open the library", excerpt_t="The scores are public", excerpt_p="{n} scores are here to read, in real notation, moving with the sound.", all_scores="All scores",
+        plots="{n} plots, one per equation", plots_more="Open the library", excerpt_t="The scores are public", excerpt_p="{n} scores are here to read, in real notation, moving with the sound.", all_scores="All scores",
         how_t="How it sounds like this", how=[("One equation", "Each track picks one equation and hands it the part you remember: a bass line, a rhythm, the way an echo falls."),
                                          ("Calculated, all of it", "AI composes the track and writes the code. The code computes every sample, including the voices and the accordion."),
                                          ("A person listens", "Naru Kijima listens and decides what stays. Every track here survived that.")], more_about="More about how it works",
@@ -63,7 +66,7 @@ T = dict(
         view_list="List", view_grid="Plots", nothing="No equation matches that.", tempo="Tempo", key="Key", meter="Meter", length="Length", genre="Genre", album="Album", label="Label", released="Released", tracks_w="Tracks", credits="Credits",
         decides="What the equation decides", composed="What was composed", equation="The equation", score_h="Score", read_full="Read the full score", prev="Previous", next="Next", track_of="track",
         on_apple="Apple Music", all_stores="All stores", scores_lede="The notes of {n} tracks, in standard notation. Press play and the page follows the sound.",
-        score_note_later="These notes were read back from the track's code as it ran: the notes it asked its instruments for, and single sounds whose pitch was measured before the mix. Each part was then checked against its own audio, and only the parts that passed are written. Stereo copies and octave layers share one staff, timing is rounded to values you can read, and whole-mix effects (stutters, stops, reversed bars), pitch bends and filter moves are not written.",
+        score_note_later="These notes were read back from the track's code as it ran: the notes it asked its instruments for or handed to a voice it computes itself, and single sounds whose pitch was measured before the mix. Each part was then checked against its own audio, and only the parts that passed are written. Stereo copies and octave layers share one staff, timing is rounded to values you can read, and whole-mix effects (stutters, stops, reversed bars), pitch bends and filter moves are not written.",
         not_written="Not written here",
         score_note="This is the notation of what the code plays. Stereo copies and octave layers share one staff, empty staves are hidden, and timing is rounded to values you can read. Pitch bends, filter moves and the rest of what the equation does to the sound can't be written here. That part you have to hear.",
         follow="Follow the sound", dl_pdf="PDF", dl_xml="MusicXML", dl_mid="MIDI", silent="Rest", bars="bars", parts="parts", notes="notes", terms="Terms", privacy="Privacy", follow_h="Follow", site_h="Site",
@@ -170,7 +173,7 @@ def thumb(r, extra=""):
 def home():
     t = T
     field = "".join(f'<li><a class="eq" href="{("/tracks/" + r["slug"] + "/")}" data-play="{r["slug"]}" data-from="hook" data-what="{esc(COPY[r["slug"]]["what"])}">{esc(r["title"])}</a></li>' for r in TRACKS)
-    plots = "".join(f'<li><a href="{("/tracks/" + r["slug"] + "/")}" aria-label="{esc(r["title"])}"><img src="/figures/{r["slug"]}.svg" alt="" loading="lazy" width="200" height="200"><span class="cap eq">{esc(r["title"])}</span></a></li>' for r in FIRST["tracks"])
+    plots = "".join(f'<li><a href="{("/tracks/" + r["slug"] + "/")}" aria-label="{esc(r["title"])}"><img src="/figures/{r["slug"]}.svg" alt="" loading="lazy" width="200" height="200"><span class="cap eq">{esc(r["title"])}</span></a></li>' for r in PLOTTED)
     how = "".join(f"<li><h3>{esc(a)}</h3><p>{esc(b)}</p></li>" for a, b in t["how"])
     sinc = next(r for r in TRACKS if r["slug"] == "sinc")
     tag = t["tagline"]
@@ -198,7 +201,7 @@ def home():
 <div class="albums albums-home">{"".join(album_card(a) for a in reversed(LATER))}</div>
 </section>
 <section class="section">
-<div class="section-head"><h2>{t['plots']}</h2><a class="link" href="/library/">{t['plots_more']}</a></div>
+<div class="section-head"><h2>{t['plots'].format(n=len(PLOTTED))}</h2><a class="link" href="/library/">{t['plots_more']}</a></div>
 <ul class="plots">{plots}</ul>
 </section>
 <section class="section">
@@ -300,7 +303,7 @@ def track(r):
     score_path = f"/scores/{r['slug']}/"
     prev_r, next_r = a["tracks"][r["n"] - 2] if r["n"] > 1 else None, a["tracks"][r["n"]] if r["n"] < count else None
     fig = (BUILD / "figures" / f"{r['slug']}.svg").read_text()
-    note = f'<p class="figure-note">{esc(FIGURE_NOTE[a["slug"]])}</p>' if a["slug"] in FIGURE_NOTE else ""
+    note = f'<p class="figure-note">{esc(FIGURE_NOTE[a["slug"]])}</p>' if a["slug"] in FIGURE_NOTE and FIGURE_KIND.get(r["slug"]) != "formula" else ""
     meta = [(t["genre"], c["style"]), (t["tempo"], f"{r['bpm']} BPM"), (t["key"], short_key(r["key"])), (t["meter"], short_meter(r["meter"])), (t["length"], clock(r["duration"])), (t["album"], f"{a['title']} · {r['n']} / {count}")]
     dl = "".join(f"<dt>{esc(x)}</dt><dd>{esc(y)}</dd>" for x, y in meta)
     pager = []
